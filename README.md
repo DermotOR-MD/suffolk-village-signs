@@ -11,19 +11,15 @@ source .venv/bin/activate
 pip install -r scripts/requirements.txt
 ```
 
-## Workflow
+## Adding new photos
 
-1. Export photos from iCloud Photos into the `photos/` folder (HEIC format is fine).
-2. Run the build script:
+1. Open the **Photos** app on your Mac.
+2. In the sidebar, find the **Village Sign** album.
+3. Select all photos (`Cmd+A`), then go to **File → Export → Export Unmodified Originals…**
+4. Save into the `photos/` folder inside this project.
+5. Double-click **`update-site.command`** — it builds the site and pushes to GitHub automatically.
 
-```bash
-python scripts/build.py
-```
-
-3. Preview locally by opening `docs/index.html` in a browser.
-4. Push to GitHub — the site is served from the `docs/` folder on the `main` branch.
-
-To add new photos, drop them into `photos/` and re-run the build script.
+Your site will update within a minute.
 
 ## Options
 
