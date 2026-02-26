@@ -8,6 +8,7 @@ Usage:
 """
 
 import argparse
+import csv
 import json
 import sys
 from datetime import datetime
@@ -280,10 +281,20 @@ def build(refresh_settlements=False):
     with open(DATA_OUT, "w") as f:
         json.dump(data, f, indent=2)
 
+    # Write unvisited CSV sorted by distance from home
+    csv_out = DOCS_DIR / "unvisited.csv"
+    sorted_unvisited = sorted(unvisited, key=lambda s: s["distance_km"])
+    with open(csv_out, "w", newline="") as f:
+        writer = csv.writer(f)
+        writer.writerow(["Settlement", "Distance from home (km)"])
+        for s in sorted_unvisited:
+            writer.writerow([s["name"], s["distance_km"]])
+
     total = data["stats"]["total"]
     pct   = 100 * len(visited) / total if total else 0
     print(f"\nDone — {len(visited)} visited / {total} total ({pct:.1f}%)")
-    print(f"Output: {DATA_OUT}")
+    print(f"Site data: {DATA_OUT}")
+    print(f"CSV:       {csv_out}")
 
 
 if __name__ == "__main__":

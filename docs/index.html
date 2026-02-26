@@ -20,7 +20,7 @@
     /* ── Header ── */
     #header {
       flex-shrink: 0;
-      padding: 10px 16px 8px;
+      padding: 10px 16px 0;
       background: #16213e;
       border-bottom: 1px solid #0f3460;
     }
@@ -39,15 +39,14 @@
       margin-bottom: 6px;
     }
 
-    #stats-line strong {
-      color: #4ade80;
-    }
+    #stats-line strong { color: #4ade80; }
 
     #progress-track {
       height: 6px;
       background: #334155;
       border-radius: 3px;
       overflow: hidden;
+      margin-bottom: 10px;
     }
 
     #progress-fill {
@@ -58,17 +57,94 @@
       width: 0%;
     }
 
-    /* ── Map ── */
+    /* ── Tabs ── */
+    #tabs {
+      display: flex;
+      gap: 4px;
+    }
+
+    .tab-btn {
+      padding: 6px 16px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      border: none;
+      border-radius: 4px 4px 0 0;
+      cursor: pointer;
+      background: #0f3460;
+      color: #94a3b8;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .tab-btn.active {
+      background: #1a1a2e;
+      color: #e2e8f0;
+    }
+
+    /* ── Panels ── */
     #map {
       flex: 1;
       min-height: 0;
     }
 
-    /* ── Leaflet popup tweaks ── */
-    .leaflet-popup-content {
-      min-width: 160px;
-      max-width: 260px;
+    #todo-panel {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      display: none;
+      background: #1a1a2e;
+      padding: 0 0 16px;
     }
+
+    #todo-panel.active { display: block; }
+
+    #todo-panel table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    #todo-panel thead th {
+      position: sticky;
+      top: 0;
+      background: #16213e;
+      color: #94a3b8;
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 16px;
+      border-bottom: 1px solid #0f3460;
+    }
+
+    #todo-panel tbody tr:nth-child(even) { background: #16213e44; }
+
+    #todo-panel tbody td {
+      padding: 8px 16px;
+      color: #cbd5e1;
+      border-bottom: 1px solid #0f346022;
+    }
+
+    #todo-panel tbody td.dist {
+      color: #94a3b8;
+      white-space: nowrap;
+    }
+
+    #todo-download {
+      display: block;
+      margin: 12px 16px 4px;
+      padding: 7px 14px;
+      background: #0f3460;
+      color: #e2e8f0;
+      font-size: 0.8rem;
+      border: 1px solid #1e4d8c;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+      width: fit-content;
+    }
+
+    #todo-download:hover { background: #1e4d8c; }
+
+    /* ── Leaflet popup tweaks ── */
+    .leaflet-popup-content { min-width: 160px; max-width: 260px; }
 
     .popup-visited img {
       display: block;
@@ -79,17 +155,8 @@
       margin-bottom: 6px;
     }
 
-    .popup-name {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: #1e293b;
-    }
-
-    .popup-detail {
-      font-size: 0.78rem;
-      color: #64748b;
-      margin-top: 2px;
-    }
+    .popup-name { font-weight: 600; font-size: 0.95rem; color: #1e293b; }
+    .popup-detail { font-size: 0.78rem; color: #64748b; margin-top: 2px; }
 
     /* ── Legend ── */
     #legend {
@@ -106,20 +173,8 @@
       pointer-events: none;
     }
 
-    .legend-row {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      margin: 3px 0;
-    }
-
-    .legend-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
+    .legend-row { display: flex; align-items: center; gap: 7px; margin: 3px 0; }
+    .legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
     .dot-visited   { background: #22c55e; border: 2px solid #166534; }
     .dot-unvisited { background: #94a3b8; border: 2px solid #475569; }
   </style>
@@ -130,9 +185,14 @@
   <h1>Suffolk Village Signs</h1>
   <div id="stats-line">Loading…</div>
   <div id="progress-track"><div id="progress-fill"></div></div>
+  <div id="tabs">
+    <button class="tab-btn active" onclick="showTab('map')">Map</button>
+    <button class="tab-btn" onclick="showTab('todo')">To Do</button>
+  </div>
 </div>
 
 <div id="map"></div>
+<div id="todo-panel"></div>
 
 <div id="legend">
   <div class="legend-row"><div class="legend-dot dot-visited"></div>Visited</div>
@@ -141,86 +201,100 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-(async () => {
-  // ── Map setup ──────────────────────────────────────────────────────────────
-  const map = L.map("map", {
-    center: [52.13, 0.95],
-    zoom: 10,
-    zoomControl: true,
+// ── Tab switching ────────────────────────────────────────────────────────────
+let map;
+
+function showTab(tab) {
+  document.querySelectorAll(".tab-btn").forEach((b, i) => {
+    b.classList.toggle("active", (i === 0) === (tab === "map"));
   });
+  document.getElementById("map").style.display        = tab === "map"  ? "block" : "none";
+  document.getElementById("todo-panel").style.display = tab === "todo" ? "block" : "none";
+  document.getElementById("legend").style.display     = tab === "map"  ? "block" : "none";
+  if (tab === "map" && map) map.invalidateSize();
+}
+
+// ── Main ─────────────────────────────────────────────────────────────────────
+(async () => {
+  map = L.map("map", { center: [52.13, 0.95], zoom: 10 });
 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 19,
   }).addTo(map);
 
-  // ── Marker factories ───────────────────────────────────────────────────────
   function visitedMarker(lat, lon) {
     return L.circleMarker([lat, lon], {
-      radius: 7,
-      fillColor: "#22c55e",
-      fillOpacity: 0.9,
-      color: "#166534",
-      weight: 1.5,
+      radius: 7, fillColor: "#22c55e", fillOpacity: 0.9, color: "#166534", weight: 1.5,
     });
   }
 
   function unvisitedMarker(lat, lon) {
     return L.circleMarker([lat, lon], {
-      radius: 5,
-      fillColor: "#94a3b8",
-      fillOpacity: 0.6,
-      color: "#475569",
-      weight: 1,
+      radius: 5, fillColor: "#94a3b8", fillOpacity: 0.6, color: "#475569", weight: 1,
     });
   }
 
-  // ── Load data ──────────────────────────────────────────────────────────────
+  // Load data
   let data;
   try {
     const resp = await fetch("data.json");
     if (!resp.ok) throw new Error(resp.statusText);
     data = await resp.json();
   } catch (e) {
-    document.getElementById("stats-line").textContent =
-      "No data yet — run the build script first.";
+    document.getElementById("stats-line").textContent = "No data yet — run the build script first.";
     return;
   }
 
   const { visited, unvisited, stats } = data;
 
-  // ── Stats bar ──────────────────────────────────────────────────────────────
+  // Stats bar
   const pct = stats.total ? ((stats.visited / stats.total) * 100).toFixed(1) : 0;
   document.getElementById("stats-line").innerHTML =
     `<strong>${stats.visited}</strong> of ${stats.total} settlements visited &nbsp;·&nbsp; ${pct}%` +
     `&nbsp;·&nbsp; <span style="color:#64748b">updated ${stats.generated}</span>`;
   document.getElementById("progress-fill").style.width = pct + "%";
 
-  // ── Plot visited ───────────────────────────────────────────────────────────
+  // Map markers
   for (const v of visited) {
-    const marker = visitedMarker(v.lat, v.lon);
+    const m = visitedMarker(v.lat, v.lon);
     const dateStr = v.date ? `<div class="popup-detail">${v.date}</div>` : "";
-    marker.bindPopup(
-      `<div class="popup-visited">` +
-        `<img src="${v.photo}" alt="${v.name}" loading="lazy">` +
-        `<div class="popup-name">${v.name}</div>` +
-        dateStr +
-      `</div>`,
+    m.bindPopup(
+      `<div class="popup-visited"><img src="${v.photo}" alt="${v.name}" loading="lazy">` +
+      `<div class="popup-name">${v.name}</div>${dateStr}</div>`,
       { maxWidth: 280 }
     );
-    marker.addTo(map);
+    m.addTo(map);
   }
 
-  // ── Plot unvisited ─────────────────────────────────────────────────────────
   for (const u of unvisited) {
-    const marker = unvisitedMarker(u.lat, u.lon);
-    marker.bindPopup(
+    const m = unvisitedMarker(u.lat, u.lon);
+    m.bindPopup(
       `<div class="popup-name">${u.name}</div>` +
       `<div class="popup-detail">${u.distance_km} km from home</div>`,
       { maxWidth: 220 }
     );
-    marker.addTo(map);
+    m.addTo(map);
   }
+
+  // To Do list — sorted by distance
+  const sorted = [...unvisited].sort((a, b) => a.distance_km - b.distance_km);
+
+  // CSV download
+  const csvRows = ["Settlement,Distance (km)", ...sorted.map(u => `"${u.name}",${u.distance_km}`)];
+  const csvBlob = new Blob([csvRows.join("\n")], { type: "text/csv" });
+  const csvUrl  = URL.createObjectURL(csvBlob);
+
+  const panel = document.getElementById("todo-panel");
+  panel.innerHTML =
+    `<a id="todo-download" href="${csvUrl}" download="suffolk-unvisited.csv">⬇ Download as CSV</a>` +
+    `<table>
+      <thead><tr><th>#</th><th>Settlement</th><th>Distance from home</th></tr></thead>
+      <tbody>` +
+    sorted.map((u, i) =>
+      `<tr><td style="color:#475569">${i + 1}</td><td>${u.name}</td><td class="dist">${u.distance_km} km</td></tr>`
+    ).join("") +
+    `</tbody></table>`;
 
 })();
 </script>
