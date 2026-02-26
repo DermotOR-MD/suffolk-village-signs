@@ -1,0 +1,16 @@
+# Raw photos — keep local, never commit
+photos/*
+!photos/.gitkeep
+
+# Processed photos are committed (part of the site)
+# docs/photos/ is tracked
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# macOS
+.DS_Store

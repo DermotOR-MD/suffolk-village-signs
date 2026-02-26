@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Suffolk Village Signs</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      display: flex;
+      flex-direction: column;
+      height: 100dvh;
+      background: #1a1a2e;
+      color: #f0f0f0;
+    }
+
+    /* ── Header ── */
+    #header {
+      flex-shrink: 0;
+      padding: 10px 16px 8px;
+      background: #16213e;
+      border-bottom: 1px solid #0f3460;
+    }
+
+    #header h1 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #e2e8f0;
+      margin-bottom: 6px;
+    }
+
+    #stats-line {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-bottom: 6px;
+    }
+
+    #stats-line strong {
+      color: #4ade80;
+    }
+
+    #progress-track {
+      height: 6px;
+      background: #334155;
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    #progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #22c55e, #4ade80);
+      border-radius: 3px;
+      transition: width 0.4s ease;
+      width: 0%;
+    }
+
+    /* ── Map ── */
+    #map {
+      flex: 1;
+      min-height: 0;
+    }
+
+    /* ── Leaflet popup tweaks ── */
+    .leaflet-popup-content {
+      min-width: 160px;
+      max-width: 260px;
+    }
+
+    .popup-visited img {
+      display: block;
+      width: 100%;
+      max-height: 180px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+
+    .popup-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+    }
+
+    .popup-detail {
+      font-size: 0.78rem;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    /* ── Legend ── */
+    #legend {
+      position: absolute;
+      bottom: 24px;
+      right: 10px;
+      z-index: 1000;
+      background: rgba(22, 33, 62, 0.92);
+      border: 1px solid #0f3460;
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 0.75rem;
+      color: #cbd5e1;
+      pointer-events: none;
+    }
+
+    .legend-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin: 3px 0;
+    }
+
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot-visited   { background: #22c55e; border: 2px solid #166534; }
+    .dot-unvisited { background: #94a3b8; border: 2px solid #475569; }
+  </style>
+</head>
+<body>
+
+<div id="header">
+  <h1>Suffolk Village Signs</h1>
+  <div id="stats-line">Loading…</div>
+  <div id="progress-track"><div id="progress-fill"></div></div>
+</div>
+
+<div id="map"></div>
+
+<div id="legend">
+  <div class="legend-row"><div class="legend-dot dot-visited"></div>Visited</div>
+  <div class="legend-row"><div class="legend-dot dot-unvisited"></div>Not yet visited</div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(async () => {
+  // ── Map setup ──────────────────────────────────────────────────────────────
+  const map = L.map("map", {
+    center: [52.13, 0.95],
+    zoom: 10,
+    zoomControl: true,
+  });
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    maxZoom: 19,
+  }).addTo(map);
+
+  // ── Marker factories ───────────────────────────────────────────────────────
+  function visitedMarker(lat, lon) {
+    return L.circleMarker([lat, lon], {
+      radius: 7,
+      fillColor: "#22c55e",
+      fillOpacity: 0.9,
+      color: "#166534",
+      weight: 1.5,
+    });
+  }
+
+  function unvisitedMarker(lat, lon) {
+    return L.circleMarker([lat, lon], {
+      radius: 5,
+      fillColor: "#94a3b8",
+      fillOpacity: 0.6,
+      color: "#475569",
+      weight: 1,
+    });
+  }
+
+  // ── Load data ──────────────────────────────────────────────────────────────
+  let data;
+  try {
+    const resp = await fetch("data.json");
+    if (!resp.ok) throw new Error(resp.statusText);
+    data = await resp.json();
+  } catch (e) {
+    document.getElementById("stats-line").textContent =
+      "No data yet — run the build script first.";
+    return;
+  }
+
+  const { visited, unvisited, stats } = data;
+
+  // ── Stats bar ──────────────────────────────────────────────────────────────
+  const pct = stats.total ? ((stats.visited / stats.total) * 100).toFixed(1) : 0;
+  document.getElementById("stats-line").innerHTML =
+    `<strong>${stats.visited}</strong> of ${stats.total} settlements visited &nbsp;·&nbsp; ${pct}%` +
+    `&nbsp;·&nbsp; <span style="color:#64748b">updated ${stats.generated}</span>`;
+  document.getElementById("progress-fill").style.width = pct + "%";
+
+  // ── Plot visited ───────────────────────────────────────────────────────────
+  for (const v of visited) {
+    const marker = visitedMarker(v.lat, v.lon);
+    const dateStr = v.date ? `<div class="popup-detail">${v.date}</div>` : "";
+    marker.bindPopup(
+      `<div class="popup-visited">` +
+        `<img src="${v.photo}" alt="${v.name}" loading="lazy">` +
+        `<div class="popup-name">${v.name}</div>` +
+        dateStr +
+      `</div>`,
+      { maxWidth: 280 }
+    );
+    marker.addTo(map);
+  }
+
+  // ── Plot unvisited ─────────────────────────────────────────────────────────
+  for (const u of unvisited) {
+    const marker = unvisitedMarker(u.lat, u.lon);
+    marker.bindPopup(
+      `<div class="popup-name">${u.name}</div>` +
+      `<div class="popup-detail">${u.distance_km} km from home</div>`,
+      { maxWidth: 220 }
+    );
+    marker.addTo(map);
+  }
+
+})();
+</script>
+</body>
+</html>
