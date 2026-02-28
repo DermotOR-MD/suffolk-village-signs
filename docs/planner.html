@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Route Planner — Suffolk Village Signs</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #1a1a2e; --panel: #16213e; --border: #0f3460;
+      --text: #e2e8f0; --muted: #94a3b8;
+      --accent: #3b82f6; --accent-h: #2563eb; --green: #22c55e;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg); color: var(--text);
+      display: flex; flex-direction: column; height: 100dvh; overflow: hidden;
+    }
+
+    /* ── Header ── */
+    #header {
+      flex-shrink: 0; display: flex; align-items: center; gap: 12px;
+      padding: 10px 16px; background: var(--panel);
+      border-bottom: 1px solid var(--border);
+    }
+    #header a { color: var(--muted); text-decoration: none; font-size: 0.8rem; white-space: nowrap; }
+    #header a:hover { color: var(--text); }
+    #header h1 { font-size: 1rem; font-weight: 600; flex: 1; }
+
+    /* ── Layout ── */
+    #main { flex: 1; min-height: 0; display: flex; }
+
+    /* ── Panel ── */
+    #panel {
+      width: 300px; flex-shrink: 0;
+      background: var(--panel); border-right: 1px solid var(--border);
+      display: flex; flex-direction: column; overflow: hidden;
+    }
+    #panel-scroll {
+      flex: 1; overflow-y: auto; padding: 12px;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+
+    .section-label {
+      font-size: 0.7rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 5px;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%; padding: 6px 9px;
+      background: #0f1929; border: 1px solid var(--border);
+      border-radius: 4px; color: var(--text); font-size: 0.82rem; outline: none;
+    }
+    input:focus { border-color: var(--accent); }
+
+    .row { display: flex; gap: 6px; }
+    .row input { flex: 1; }
+
+    .btn-sm {
+      padding: 5px 10px; background: var(--border); border: none;
+      border-radius: 4px; color: var(--text); font-size: 0.78rem;
+      cursor: pointer; white-space: nowrap;
+    }
+    .btn-sm:hover { background: #1e4d8c; }
+
+    #start-sub { font-size: 0.72rem; color: var(--muted); margin-top: 3px; }
+
+    /* ── Compass ── */
+    #compass { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; }
+    .dir-btn {
+      padding: 6px 4px; background: #0f1929; border: 1px solid var(--border);
+      border-radius: 4px; color: var(--muted); font-size: 0.8rem; font-weight: 500;
+      cursor: pointer; text-align: center; transition: all 0.15s;
+    }
+    .dir-btn:hover { border-color: var(--accent); color: var(--text); }
+    .dir-btn.active { background: var(--accent); border-color: var(--accent); color: white; }
+    #dir-any { grid-column: 1 / -1; }
+
+    /* ── Slider ── */
+    input[type="range"] { width: 100%; accent-color: var(--accent); }
+    .slider-ends { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── Village list ── */
+    .list-btns { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+    #village-list {
+      max-height: 200px; overflow-y: auto;
+      border: 1px solid var(--border); border-radius: 4px; background: #0f1929;
+    }
+    .village-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 5px 8px; cursor: pointer;
+      border-bottom: 1px solid #0f346022; font-size: 0.82rem;
+    }
+    .village-item:last-child { border-bottom: none; }
+    .village-item:hover { background: #1e293b; }
+    .village-item.sel { background: #1e3a5f; }
+    .village-item input[type="checkbox"] { width: auto; accent-color: var(--accent); flex-shrink: 0; }
+    .v-name { flex: 1; }
+    .v-dist { color: var(--muted); font-size: 0.74rem; white-space: nowrap; }
+    .list-empty { padding: 14px; text-align: center; color: var(--muted); font-size: 0.8rem; }
+
+    /* ── Return to start ── */
+    .check-row { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; color: var(--muted); cursor: pointer; }
+    .check-row input { accent-color: var(--accent); }
+
+    /* ── Buttons ── */
+    #btn-plan {
+      padding: 9px; background: var(--accent); border: none; border-radius: 5px;
+      color: white; font-size: 0.88rem; font-weight: 600;
+      cursor: pointer; transition: background 0.15s;
+    }
+    #btn-plan:hover:not(:disabled) { background: var(--accent-h); }
+    #btn-plan:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    #btn-gpx {
+      display: none; padding: 8px; background: var(--green); border: none;
+      border-radius: 5px; color: #052e16; font-size: 0.82rem; font-weight: 600;
+      cursor: pointer; text-align: center;
+    }
+    #btn-gpx:hover { background: #4ade80; }
+
+    /* ── Stats ── */
+    #stats-box {
+      display: none; padding: 10px; background: #0f1929;
+      border: 1px solid var(--border); border-radius: 4px; font-size: 0.82rem;
+    }
+    .stat { display: flex; justify-content: space-between; margin: 2px 0; }
+    .stat-val { font-weight: 600; }
+    .route-order { margin-top: 8px; color: var(--muted); font-size: 0.74rem; line-height: 1.7; }
+
+    /* ── Error ── */
+    #error-msg {
+      display: none; padding: 8px; background: #450a0a;
+      border: 1px solid #7f1d1d; border-radius: 4px;
+      font-size: 0.78rem; color: #fca5a5;
+    }
+
+    /* ── Map ── */
+    #map { flex: 1; }
+
+    /* ── Loading overlay ── */
+    #loading {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.55); z-index: 9999;
+      align-items: center; justify-content: center;
+      flex-direction: column; gap: 12px;
+      font-size: 0.95rem; color: white;
+    }
+    #loading.on { display: flex; }
+
+    /* ── Mobile ── */
+    @media (max-width: 640px) {
+      #main { flex-direction: column; }
+      #panel { width: 100%; border-right: none; border-bottom: 1px solid var(--border); max-height: 45dvh; }
+      #village-list { max-height: 110px; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="header">
+  <a href="index.html">← Map</a>
+  <h1>Route Planner</h1>
+</div>
+
+<div id="loading"><div>Planning route…</div></div>
+
+<div id="main">
+
+  <!-- ── Panel ── -->
+  <div id="panel">
+    <div id="panel-scroll">
+
+      <!-- API Key -->
+      <div>
+        <div class="section-label">GraphHopper API Key</div>
+        <input type="password" id="api-key" placeholder="Paste your key here…">
+      </div>
+
+      <!-- Start point -->
+      <div>
+        <div class="section-label">Start Point</div>
+        <div class="row">
+          <input type="text" id="start-input" placeholder="Postcode or town…" value="Elmswell">
+          <button class="btn-sm" onclick="geocodeStart()">Find</button>
+        </div>
+        <div id="start-sub">52.2355, 0.9014 — or drag the pin on the map</div>
+      </div>
+
+      <!-- Return to start -->
+      <label class="check-row">
+        <input type="checkbox" id="return-home" checked>
+        Return to start
+      </label>
+
+      <!-- Direction -->
+      <div>
+        <div class="section-label">Direction from start</div>
+        <div id="compass">
+          <button class="dir-btn" data-dir="NW">NW</button>
+          <button class="dir-btn" data-dir="N">N</button>
+          <button class="dir-btn" data-dir="NE">NE</button>
+          <button class="dir-btn" data-dir="W">W</button>
+          <button class="dir-btn active" id="dir-any" data-dir="Any">Any direction</button>
+          <button class="dir-btn" data-dir="E">E</button>
+          <button class="dir-btn" data-dir="SW">SW</button>
+          <button class="dir-btn" data-dir="S">S</button>
+          <button class="dir-btn" data-dir="SE">SE</button>
+        </div>
+      </div>
+
+      <!-- Radius slider -->
+      <div>
+        <div class="section-label">Max straight-line distance: <strong id="radius-val">35</strong> km</div>
+        <input type="range" id="radius-slider" min="5" max="60" value="35" oninput="onRadiusChange()">
+        <div class="slider-ends"><span>5 km</span><span>60 km</span></div>
+      </div>
+
+      <!-- Village list -->
+      <div>
+        <div class="section-label">Unvisited settlements (<span id="list-count">0</span>)</div>
+        <div class="list-btns">
+          <button class="btn-sm" onclick="selectNearest(5)">Nearest 5</button>
+          <button class="btn-sm" onclick="selectNearest(10)">Nearest 10</button>
+          <button class="btn-sm" onclick="selectNearest(15)">Nearest 15</button>
+          <button class="btn-sm" onclick="clearSel()">Clear</button>
+        </div>
+        <div id="village-list"><div class="list-empty">Loading…</div></div>
+      </div>
+
+      <!-- Plan -->
+      <button id="btn-plan" disabled onclick="planRoute()">Plan Route</button>
+
+      <!-- Error -->
+      <div id="error-msg"></div>
+
+      <!-- Stats -->
+      <div id="stats-box"></div>
+
+      <!-- GPX -->
+      <button id="btn-gpx" onclick="downloadGPX()">⬇ Download GPX</button>
+
+    </div>
+  </div>
+
+  <!-- ── Map ── -->
+  <div id="map"></div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// ── State ─────────────────────────────────────────────────────────────────────
+let startCoords  = { lat: 52.2355, lon: 0.9014 };
+let selectedDir  = 'Any';
+let allUnvisited = [];
+let filtered     = [];
+let selectedNames = new Set();
+let routeData    = null;
+let routeLayer   = null;
+let waypointLayers = [];
+let filteredMarkers = {};   // name → L.CircleMarker
+
+// ── Map init ──────────────────────────────────────────────────────────────────
+const map = L.map('map', { center: [52.13, 0.95], zoom: 10 });
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  maxZoom: 19,
+}).addTo(map);
+
+// Draggable start marker
+const startIcon = L.divIcon({
+  className: '',
+  html: '<div style="background:#f59e0b;border:2px solid #92400e;border-radius:50%;width:14px;height:14px"></div>',
+  iconSize: [14, 14], iconAnchor: [7, 7],
+});
+const startMarker = L.marker([startCoords.lat, startCoords.lon], { draggable: true, icon: startIcon, zIndexOffset: 1000 })
+  .bindTooltip('Start point (drag to move)')
+  .addTo(map);
+
+startMarker.on('dragend', () => {
+  const ll = startMarker.getLatLng();
+  startCoords = { lat: ll.lat, lon: ll.lng };
+  document.getElementById('start-sub').textContent = `${ll.lat.toFixed(4)}, ${ll.lng.toFixed(4)} (dragged)`;
+  applyFilters();
+});
+
+// ── API key (localStorage) ─────────────────────────────────────────────────────
+const apiInput = document.getElementById('api-key');
+apiInput.value = localStorage.getItem('gh_api_key') || '';
+apiInput.addEventListener('change', () => localStorage.setItem('gh_api_key', apiInput.value.trim()));
+const getKey = () => apiInput.value.trim();
+
+// ── Maths helpers ──────────────────────────────────────────────────────────────
+function haversine(a, b) {
+  const R = 6371, toR = Math.PI / 180;
+  const dLat = (b.lat - a.lat) * toR, dLon = (b.lon - a.lon) * toR;
+  const h = Math.sin(dLat/2)**2 + Math.cos(a.lat*toR) * Math.cos(b.lat*toR) * Math.sin(dLon/2)**2;
+  return R * 2 * Math.asin(Math.sqrt(h));
+}
+
+function getBearing(from, to) {
+  const toR = Math.PI / 180;
+  const dLon = (to.lon - from.lon) * toR;
+  const x = Math.sin(dLon) * Math.cos(to.lat * toR);
+  const y = Math.cos(from.lat*toR) * Math.sin(to.lat*toR) - Math.sin(from.lat*toR) * Math.cos(to.lat*toR) * Math.cos(dLon);
+  return (Math.atan2(x, y) / toR + 360) % 360;
+}
+
+const DIR_MID = { N: 0, NE: 45, E: 90, SE: 135, S: 180, SW: 225, W: 270, NW: 315 };
+function inDir(brg, dir) {
+  if (dir === 'Any') return true;
+  let diff = ((brg - DIR_MID[dir]) + 360) % 360;
+  if (diff > 180) diff = 360 - diff;
+  return diff <= 45;
+}
+
+function nearestNeighbour(start, pts) {
+  const rem = [...pts]; const out = []; let cur = start;
+  while (rem.length) {
+    let bi = 0, bd = Infinity;
+    rem.forEach((p, i) => { const d = haversine(cur, p); if (d < bd) { bd = d; bi = i; } });
+    out.push(rem[bi]); cur = rem[bi]; rem.splice(bi, 1);
+  }
+  return out;
+}
+
+// ── Filters ───────────────────────────────────────────────────────────────────
+function applyFilters() {
+  const radius = +document.getElementById('radius-slider').value;
+  filtered = allUnvisited
+    .map(u => ({ ...u, _dist: haversine(startCoords, u), _brg: getBearing(startCoords, u) }))
+    .filter(u => u._dist <= radius && inDir(u._brg, selectedDir))
+    .sort((a, b) => a._dist - b._dist);
+
+  // Remove names no longer in filtered from selection
+  const filteredSet = new Set(filtered.map(u => u.name));
+  selectedNames.forEach(n => { if (!filteredSet.has(n)) selectedNames.delete(n); });
+
+  renderList();
+  renderMarkers();
+}
+
+function renderList() {
+  document.getElementById('list-count').textContent = filtered.length;
+  const el = document.getElementById('village-list');
+  if (!filtered.length) {
+    el.innerHTML = '<div class="list-empty">No settlements match — try a wider radius or different direction</div>';
+    updateBtn(); return;
+  }
+  el.innerHTML = filtered.map(u => {
+    const sel = selectedNames.has(u.name);
+    const esc = u.name.replace(/'/g, "\\'");
+    return `<div class="village-item ${sel ? 'sel' : ''}" onclick="toggleV('${esc}')">
+      <input type="checkbox" ${sel ? 'checked' : ''} onclick="event.stopPropagation();toggleV('${esc}')">
+      <span class="v-name">${u.name}</span>
+      <span class="v-dist">${u._dist.toFixed(1)} km</span>
+    </div>`;
+  }).join('');
+  updateBtn();
+}
+
+function renderMarkers() {
+  Object.values(filteredMarkers).forEach(m => map.removeLayer(m));
+  filteredMarkers = {};
+  for (const u of filtered) {
+    const sel = selectedNames.has(u.name);
+    const m = L.circleMarker([u.lat, u.lon], markerStyle(sel))
+      .bindPopup(`<b>${u.name}</b><br>${u._dist.toFixed(1)} km from start`)
+      .on('click', () => toggleV(u.name))
+      .addTo(map);
+    filteredMarkers[u.name] = m;
+  }
+}
+
+function markerStyle(sel) {
+  return sel
+    ? { radius: 7, fillColor: '#3b82f6', fillOpacity: 0.9, color: '#1d4ed8', weight: 2 }
+    : { radius: 5, fillColor: '#94a3b8', fillOpacity: 0.5, color: '#475569', weight: 1 };
+}
+
+function refreshMarker(name) {
+  const m = filteredMarkers[name];
+  if (!m) return;
+  const sel = selectedNames.has(name);
+  m.setStyle(markerStyle(sel));
+  if (sel) m.setRadius(7); else m.setRadius(5);
+}
+
+function toggleV(name) {
+  selectedNames.has(name) ? selectedNames.delete(name) : selectedNames.add(name);
+  refreshMarker(name);
+  renderList();
+}
+
+function selectNearest(n) {
+  selectedNames.clear();
+  filtered.slice(0, n).forEach(u => selectedNames.add(u.name));
+  renderMarkers();
+  renderList();
+}
+
+function clearSel() {
+  selectedNames.clear();
+  renderMarkers();
+  renderList();
+}
+
+function updateBtn() {
+  document.getElementById('btn-plan').disabled = selectedNames.size === 0;
+}
+
+// ── Direction buttons ─────────────────────────────────────────────────────────
+document.getElementById('compass').addEventListener('click', e => {
+  const btn = e.target.closest('.dir-btn');
+  if (!btn) return;
+  document.querySelectorAll('.dir-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  selectedDir = btn.dataset.dir;
+  applyFilters();
+});
+
+// ── Radius slider ─────────────────────────────────────────────────────────────
+function onRadiusChange() {
+  document.getElementById('radius-val').textContent = document.getElementById('radius-slider').value;
+  applyFilters();
+}
+
+// ── Geocode start point ───────────────────────────────────────────────────────
+async function geocodeStart() {
+  const key = getKey();
+  if (!key) { showErr('Enter your GraphHopper API key first.'); return; }
+  const q = document.getElementById('start-input').value.trim();
+  if (!q) return;
+  try {
+    const r = await fetch(`https://graphhopper.com/api/1/geocode?q=${encodeURIComponent(q)}&locale=en&limit=1&countrycodes=gb&key=${key}`);
+    const d = await r.json();
+    if (!d.hits?.length) { showErr('Location not found — try a different postcode or town.'); return; }
+    const h = d.hits[0];
+    startCoords = { lat: h.point.lat, lon: h.point.lng };
+    startMarker.setLatLng([startCoords.lat, startCoords.lon]);
+    map.panTo([startCoords.lat, startCoords.lon]);
+    document.getElementById('start-sub').textContent = `${startCoords.lat.toFixed(4)}, ${startCoords.lon.toFixed(4)} — ${h.name}`;
+    hideErr();
+    applyFilters();
+  } catch (e) { showErr('Geocoding failed: ' + e.message); }
+}
+document.getElementById('start-input').addEventListener('keydown', e => { if (e.key === 'Enter') geocodeStart(); });
+
+// ── Plan route ────────────────────────────────────────────────────────────────
+async function planRoute() {
+  const key = getKey();
+  if (!key) { showErr('Enter your GraphHopper API key first.'); return; }
+  if (!selectedNames.size) return;
+
+  hideErr();
+  document.getElementById('loading').classList.add('on');
+  document.getElementById('stats-box').style.display = 'none';
+  document.getElementById('btn-gpx').style.display = 'none';
+  routeData = null;
+
+  if (routeLayer) { map.removeLayer(routeLayer); routeLayer = null; }
+  waypointLayers.forEach(l => map.removeLayer(l));
+  waypointLayers = [];
+
+  try {
+    const selected  = filtered.filter(u => selectedNames.has(u.name));
+    const ordered   = nearestNeighbour(startCoords, selected);
+    const returnHome = document.getElementById('return-home').checked;
+    const pts = [startCoords, ...ordered, ...(returnHome ? [startCoords] : [])];
+
+    const params = pts.map(p => `point=${p.lat},${p.lon}`).join('&');
+    const resp = await fetch(
+      `https://graphhopper.com/api/1/route?${params}&profile=bike&points_encoded=false&key=${key}`
+    );
+    const json = await resp.json();
+    if (!resp.ok) throw new Error(json.message || `API error ${resp.status}`);
+
+    const path   = json.paths[0];
+    const distKm = (path.distance / 1000).toFixed(1);
+    const mins   = Math.round(path.time / 60000);
+    const timeStr = `${Math.floor(mins/60)}h ${mins%60}m`;
+
+    // Route line
+    const latlngs = path.points.coordinates.map(([lon, lat]) => [lat, lon]);
+    routeLayer = L.polyline(latlngs, { color: '#3b82f6', weight: 4, opacity: 0.85 }).addTo(map);
+
+    // Numbered village markers
+    ordered.forEach((w, i) => {
+      const icon = L.divIcon({
+        className: '',
+        html: `<div style="background:#3b82f6;color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;border:2px solid #1d4ed8;box-shadow:0 1px 3px rgba(0,0,0,.5)">${i+1}</div>`,
+        iconSize: [22, 22], iconAnchor: [11, 11],
+      });
+      waypointLayers.push(
+        L.marker([w.lat, w.lon], { icon }).bindPopup(`<b>${i+1}. ${w.name}</b>`).addTo(map)
+      );
+    });
+
+    map.fitBounds(routeLayer.getBounds(), { padding: [20, 20] });
+
+    // Stats
+    const order = ordered.map((w, i) => `${i+1}. ${w.name}`).join(' → ');
+    document.getElementById('stats-box').innerHTML = `
+      <div class="stat"><span style="color:var(--muted)">Distance</span><span class="stat-val">${distKm} km</span></div>
+      <div class="stat"><span style="color:var(--muted)">Est. time</span><span class="stat-val">${timeStr}</span></div>
+      <div class="stat"><span style="color:var(--muted)">Villages</span><span class="stat-val">${ordered.length}</span></div>
+      <div class="route-order">${order}</div>`;
+    document.getElementById('stats-box').style.display = 'block';
+
+    routeData = { coords: path.points.coordinates, waypoints: ordered, distKm };
+    document.getElementById('btn-gpx').style.display = 'block';
+
+  } catch(e) {
+    showErr('Routing failed: ' + e.message);
+  } finally {
+    document.getElementById('loading').classList.remove('on');
+  }
+}
+
+// ── GPX download ──────────────────────────────────────────────────────────────
+function downloadGPX() {
+  if (!routeData) return;
+  const { coords, waypoints, distKm } = routeData;
+  const name = `Suffolk Signs — ${waypoints.map(w => w.name).join(', ')} (${distKm} km)`;
+
+  const wpts = waypoints.map((w, i) =>
+    `  <wpt lat="${w.lat}" lon="${w.lon}"><name>${i+1}. ${w.name}</name></wpt>`
+  ).join('\n');
+
+  const trkpts = coords.map(([lon, lat]) =>
+    `      <trkpt lat="${lat}" lon="${lon}"/>`
+  ).join('\n');
+
+  const gpx = `<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="Suffolk Village Signs" xmlns="http://www.topografix.com/GPX/1/1">
+  <metadata><name>${name}</name></metadata>
+${wpts}
+  <trk>
+    <name>${name}</name>
+    <trkseg>
+${trkpts}
+    </trkseg>
+  </trk>
+</gpx>`;
+
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([gpx], { type: 'application/gpx+xml' }));
+  a.download = `suffolk-route-${new Date().toISOString().slice(0,10)}.gpx`;
+  a.click();
+}
+
+// ── Error helpers ──────────────────────────────────────────────────────────────
+function showErr(msg) { const e = document.getElementById('error-msg'); e.textContent = msg; e.style.display = 'block'; }
+function hideErr() { document.getElementById('error-msg').style.display = 'none'; }
+
+// ── Init ───────────────────────────────────────────────────────────────────────
+(async () => {
+  try {
+    const d = await (await fetch('data.json')).json();
+    allUnvisited = d.unvisited;
+    applyFilters();
+  } catch(e) {
+    document.getElementById('village-list').innerHTML = '<div class="list-empty">Could not load data.json</div>';
+  }
+})();
+</script>
+</body>
+</html>
