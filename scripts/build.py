@@ -15,7 +15,7 @@ from datetime import datetime
 from pathlib import Path
 
 import requests
-from PIL import Image
+from PIL import Image, ImageOps
 from geopy.distance import geodesic
 
 try:
@@ -202,7 +202,7 @@ def nearest_settlement(coords, settlements):
 # ── Image output ──────────────────────────────────────────────────────────────
 
 def save_web_photo(img, out_path):
-    copy = img.copy()
+    copy = ImageOps.exif_transpose(img)   # correct rotation from EXIF orientation tag
     copy.thumbnail(MAX_PHOTO_PX, Image.LANCZOS)
     if copy.mode not in ("RGB", "L"):
         copy = copy.convert("RGB")

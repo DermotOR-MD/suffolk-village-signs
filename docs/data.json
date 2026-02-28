@@ -386,6 +386,20 @@
       "date": "2020-06-14"
     },
     {
+      "name": "Hoxne",
+      "lat": 52.340469444444444,
+      "lon": 1.2041972222222221,
+      "photo": "photos/IMG_2583.jpg",
+      "date": "2024-02-28"
+    },
+    {
+      "name": "Wingfield",
+      "lat": 52.346383333333335,
+      "lon": 1.2672055555555555,
+      "photo": "photos/IMG_2586.jpg",
+      "date": "2024-02-28"
+    },
+    {
       "name": "Bedfield",
       "lat": 52.25378888888889,
       "lon": 1.2500027777777778,
@@ -624,13 +638,6 @@
       "date": "2022-08-13"
     },
     {
-      "name": "Hoxne",
-      "lat": 52.350005555555555,
-      "lon": 1.1999333333333333,
-      "photo": "photos/IMG_4294.jpg",
-      "date": "2020-11-04"
-    },
-    {
       "name": "Homersfield",
       "lat": 52.42198888888888,
       "lon": 1.3621805555555557,
@@ -692,6 +699,20 @@
       "lon": 0.80025,
       "photo": "photos/IMG_4518.jpg",
       "date": "2020-11-29"
+    },
+    {
+      "name": "Thornham Parva",
+      "lat": 52.31220555555555,
+      "lon": 1.0928222222222221,
+      "photo": "photos/IMG_4733.jpg",
+      "date": "2025-03-09"
+    },
+    {
+      "name": "Thornham Magna",
+      "lat": 52.29785555555555,
+      "lon": 1.0837944444444443,
+      "photo": "photos/IMG_4739.jpg",
+      "date": "2025-03-12"
     },
     {
       "name": "St Cross, South Elmham",
@@ -839,6 +860,41 @@
       "lon": 0.9589749999999999,
       "photo": "photos/IMG_5416.jpg",
       "date": "2021-04-04"
+    },
+    {
+      "name": "Fakenham Magna",
+      "lat": 52.355672222222225,
+      "lon": 0.8015805555555556,
+      "photo": "photos/IMG_5456.jpg",
+      "date": "2025-05-11"
+    },
+    {
+      "name": "Brandon",
+      "lat": 52.44783333333333,
+      "lon": 0.6246222222222223,
+      "photo": "photos/IMG_5458.jpg",
+      "date": "2025-05-11"
+    },
+    {
+      "name": "Lakenheath",
+      "lat": 52.412727777777775,
+      "lon": 0.5229944444444445,
+      "photo": "photos/IMG_5464.jpg",
+      "date": "2025-05-11"
+    },
+    {
+      "name": "Eriswell",
+      "lat": 52.37465,
+      "lon": 0.5294555555555556,
+      "photo": "photos/IMG_5465.jpg",
+      "date": "2025-05-11"
+    },
+    {
+      "name": "Icklingham",
+      "lat": 52.322608333333335,
+      "lon": 0.6036138888888889,
+      "photo": "photos/IMG_5466.jpg",
+      "date": "2025-05-11"
     },
     {
       "name": "Hinderclay",
@@ -1352,12 +1408,6 @@
       "lat": 52.3589272,
       "lon": 1.1328511,
       "distance_km": 20.9
-    },
-    {
-      "name": "Brandon",
-      "lat": 52.4482313,
-      "lon": 0.6240803,
-      "distance_km": 30.3
     },
     {
       "name": "Gipping",
@@ -2398,12 +2448,6 @@
       "distance_km": 23.7
     },
     {
-      "name": "Wingfield",
-      "lat": 52.3453122,
-      "lon": 1.2696162,
-      "distance_km": 27.9
-    },
-    {
       "name": "Sudbourne",
       "lat": 52.1225482,
       "lon": 1.5237514,
@@ -2950,24 +2994,6 @@
       "distance_km": 41.3
     },
     {
-      "name": "Lakenheath",
-      "lat": 52.4175635,
-      "lon": 0.5180418,
-      "distance_km": 33.1
-    },
-    {
-      "name": "Eriswell",
-      "lat": 52.3744716,
-      "lon": 0.5317981,
-      "distance_km": 29.6
-    },
-    {
-      "name": "Icklingham",
-      "lat": 52.3240846,
-      "lon": 0.6040697,
-      "distance_km": 22.6
-    },
-    {
       "name": "Cavenham",
       "lat": 52.2986263,
       "lon": 0.5823679,
@@ -3338,12 +3364,6 @@
       "lat": 52.0634846,
       "lon": 0.5406122,
       "distance_km": 31.2
-    },
-    {
-      "name": "Fakenham Magna",
-      "lat": 52.3548546,
-      "lon": 0.803906,
-      "distance_km": 14.9
     },
     {
       "name": "Santon Downham",
@@ -3958,18 +3978,6 @@
       "distance_km": 50.2
     },
     {
-      "name": "Thornham Magna",
-      "lat": 52.297915,
-      "lon": 1.0846562,
-      "distance_km": 14.3
-    },
-    {
-      "name": "Thornham Parva",
-      "lat": 52.3115899,
-      "lon": 1.091453,
-      "distance_km": 15.5
-    },
-    {
       "name": "Stoke Ash",
       "lat": 52.2876797,
       "lon": 1.1010359,
@@ -4559,8 +4567,8 @@
     }
   ],
   "stats": {
-    "visited": 187,
+    "visited": 195,
     "total": 728,
-    "generated": "2026-02-26"
+    "generated": "2026-02-28"
   }
 }
