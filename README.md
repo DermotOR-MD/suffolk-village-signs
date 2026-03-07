@@ -13,11 +13,8 @@ pip install -r scripts/requirements.txt
 
 ## Adding new photos
 
-1. Open the **Photos** app on your Mac.
-2. In the sidebar, find the **Village Sign** album.
-3. Select all photos (`Cmd+A`), then go to **File → Export → Export Unmodified Originals…**
-4. Save into the `photos/` folder inside this project.
-5. Double-click **`update-site.command`** — it builds the site and pushes to GitHub automatically.
+1. Take a geotagged photo and add it to the **Village Signs** album in Photos.
+2. Double-click **`update-site.command`** — it reads directly from your Photos library, builds the site, and pushes to GitHub.
 
 Your site will update within a minute.
 
@@ -39,7 +36,7 @@ python scripts/build.py --refresh-settlements
 
 | Step | What happens |
 |------|-------------|
-| Scan | Reads all HEIC/JPEG files in `photos/` that contain GPS data |
+| Scan | Reads all photos in the **Village Signs** Photos album that contain GPS data |
 | Deduplicate | Photos within 50 m of each other are treated as one visit; most recent is kept |
 | Match | Each photo is matched to the nearest Suffolk settlement within 1.5 km using OpenStreetMap data |
 | Export | Photos are resized to max 1200 px and saved as JPEG into `docs/photos/` |

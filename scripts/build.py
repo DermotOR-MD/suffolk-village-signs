@@ -14,6 +14,7 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+import osxphotos
 import requests
 from PIL import Image, ImageOps
 from geopy.distance import geodesic
@@ -27,7 +28,6 @@ except ImportError:
 
 # ── Paths ─────────────────────────────────────────────────────────────────────
 ROOT = Path(__file__).parent.parent
-PHOTOS_IN  = ROOT / "photos"
 PHOTOS_OUT = ROOT / "docs" / "photos"
 DATA_DIR   = ROOT / "data"
 DOCS_DIR   = ROOT / "docs"
@@ -35,92 +35,41 @@ SETTLEMENTS_FILE = DATA_DIR / "settlements.json"
 DATA_OUT         = DOCS_DIR / "data.json"
 
 # ── Config ────────────────────────────────────────────────────────────────────
+ALBUM_NAME     = "Village Signs"
 HOME_COORDS    = (52.2355, 0.9014)   # Elmswell, IP30 9HD (approx.)
 DEDUP_RADIUS_M = 50
 MATCH_RADIUS_KM = 1.5
 MAX_PHOTO_PX   = (1200, 1200)
 
-# ── EXIF helpers ──────────────────────────────────────────────────────────────
-
-def _to_float(val):
-    """Convert IFDRational, (num, den) tuple, or plain number to float."""
-    if hasattr(val, "numerator") and hasattr(val, "denominator"):
-        return float(val)
-    if isinstance(val, tuple) and len(val) == 2:
-        return val[0] / val[1] if val[1] != 0 else 0.0
-    return float(val)
-
-
-def _dms_to_decimal(dms, ref):
-    d = _to_float(dms[0])
-    m = _to_float(dms[1])
-    s = _to_float(dms[2])
-    dec = d + m / 60 + s / 3600
-    return -dec if ref in ("S", "W") else dec
-
-
-def extract_gps(img):
-    """Return (lat, lon) or None."""
-    try:
-        gps = img.getexif().get_ifd(0x8825)  # GPSInfo IFD
-    except Exception:
-        raw = (img._getexif() or {})
-        gps = raw.get(34853, {})
-
-    if not gps:
-        return None
-    try:
-        lat = _dms_to_decimal(gps[2], gps.get(1, "N"))
-        lon = _dms_to_decimal(gps[4], gps.get(3, "E"))
-        return (lat, lon)
-    except (KeyError, TypeError, ZeroDivisionError):
-        return None
-
-
-def extract_datetime(img):
-    """Return datetime or datetime.min if unavailable."""
-    try:
-        exif = img.getexif()
-    except Exception:
-        exif = img._getexif() or {}
-
-    for tag in (36867, 36868, 306):   # DateTimeOriginal, DateTimeDigitized, DateTime
-        val = exif.get(tag)
-        if val:
-            try:
-                return datetime.strptime(val, "%Y:%m:%d %H:%M:%S")
-            except ValueError:
-                continue
-    return datetime.min
 
 # ── Photo loading & deduplication ─────────────────────────────────────────────
 
-SUPPORTED = {".heic", ".heif", ".jpg", ".jpeg", ".png"}
+def load_photos_from_library():
+    """Load photos from the macOS Photos album, reading directly from the library."""
+    db = osxphotos.PhotosDB()
+    album_photos = db.photos(albums=[ALBUM_NAME])
+    print(f"  Found {len(album_photos)} photos in '{ALBUM_NAME}' album")
 
-
-def load_photos(directory):
-    """Load all supported images that have GPS data."""
     photos = []
-    if not directory.exists():
-        return photos
-
-    for path in sorted(directory.iterdir()):
-        if path.suffix.lower() not in SUPPORTED:
+    for p in album_photos:
+        lat, lon = p.location
+        if lat is None or lon is None:
+            print(f"  skip  {p.original_filename}  (no GPS)")
+            continue
+        path = p.path
+        if path is None:
+            print(f"  skip  {p.original_filename}  (not downloaded from iCloud)")
             continue
         try:
             img = Image.open(path)
-            coords = extract_gps(img)
-            if not coords:
-                print(f"  skip  {path.name}  (no GPS)")
-                continue
             photos.append({
-                "path":     path,
+                "path":     Path(path),
                 "img":      img,
-                "coords":   coords,
-                "datetime": extract_datetime(img),
+                "coords":   (lat, lon),
+                "datetime": p.date.replace(tzinfo=None),
             })
         except Exception as exc:
-            print(f"  error {path.name}: {exc}")
+            print(f"  error {p.original_filename}: {exc}")
 
     return photos
 
@@ -214,8 +163,8 @@ def build(refresh_settlements=False):
     PHOTOS_OUT.mkdir(parents=True, exist_ok=True)
 
     # 1. Photos
-    print(f"\nScanning {PHOTOS_IN} …")
-    raw = load_photos(PHOTOS_IN)
+    print(f"\nReading from Photos library …")
+    raw = load_photos_from_library()
     print(f"  {len(raw)} photos with GPS data")
     photos = deduplicate(raw)
     print(f"  {len(photos)} after deduplication")
