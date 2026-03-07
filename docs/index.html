@@ -177,6 +177,86 @@
     .legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
     .dot-visited   { background: #22c55e; border: 2px solid #166534; }
     .dot-unvisited { background: #94a3b8; border: 2px solid #475569; }
+
+    /* ── No Sign button in map popup ── */
+    .no-sign-btn {
+      display: block;
+      margin-top: 8px;
+      padding: 4px 10px;
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fca5a5;
+      border-radius: 4px;
+      font-size: 0.78rem;
+      cursor: pointer;
+      width: 100%;
+    }
+    .no-sign-btn:hover { background: #fecaca; }
+
+    /* ── No Sign button in To Do list rows ── */
+    .no-sign-row-btn {
+      padding: 2px 8px;
+      background: transparent;
+      color: #64748b;
+      border: 1px solid #334155;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .no-sign-row-btn:hover { background: #fee2e2; color: #991b1b; border-color: #fca5a5; }
+
+    /* ── Excluded section ── */
+    #excluded-section {
+      margin: 16px 16px 0;
+    }
+
+    #excluded-section details {
+      border: 1px solid #334155;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    #excluded-section summary {
+      padding: 8px 12px;
+      background: #16213e;
+      color: #94a3b8;
+      font-size: 0.82rem;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    #excluded-section summary:hover { color: #cbd5e1; }
+
+    .excluded-list {
+      list-style: none;
+      padding: 4px 0;
+    }
+
+    .excluded-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 12px;
+      font-size: 0.83rem;
+      color: #94a3b8;
+      border-bottom: 1px solid #0f346022;
+    }
+
+    .excluded-list li:last-child { border-bottom: none; }
+
+    .restore-btn {
+      padding: 2px 8px;
+      background: transparent;
+      color: #4ade80;
+      border: 1px solid #166534;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-left: 8px;
+    }
+    .restore-btn:hover { background: #14532d; }
   </style>
 </head>
 <body>
@@ -215,6 +295,19 @@ function showTab(tab) {
   if (tab === "map" && map) map.invalidateSize();
 }
 
+// ── localStorage helpers ─────────────────────────────────────────────────────
+const EXCLUDED_KEY = 'villageSigns_noSign';
+const excluded = (() => {
+  try { return new Set(JSON.parse(localStorage.getItem(EXCLUDED_KEY) || '[]')); }
+  catch { return new Set(); }
+})();
+function saveExcluded() { localStorage.setItem(EXCLUDED_KEY, JSON.stringify([...excluded])); }
+function escHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
 // ── Main ─────────────────────────────────────────────────────────────────────
 (async () => {
   map = L.map("map", { center: [52.13, 0.95], zoom: 10 });
@@ -249,39 +342,118 @@ function showTab(tab) {
 
   const { visited, unvisited, stats } = data;
 
-  // Stats bar
-  const pct = stats.total ? ((stats.visited / stats.total) * 100).toFixed(1) : 0;
-  document.getElementById("stats-line").innerHTML =
-    `<strong>${stats.visited}</strong> of ${stats.total} settlements visited &nbsp;·&nbsp; ${pct}%` +
-    `&nbsp;·&nbsp; <span style="color:#64748b">updated ${stats.generated}</span>`;
-  document.getElementById("progress-fill").style.width = pct + "%";
+  const unvisitedByName = new Map(unvisited.map(u => [u.name, u]));
+  const unvisitedMarkers = new Map(); // name → L.circleMarker
+  const todoRowsByName   = new Map(); // name → <tr>
 
-  // Map markers
+  // ── Stats ──────────────────────────────────────────────────────────────────
+  function renderStats() {
+    const noSignCount = [...excluded].filter(n => unvisitedByName.has(n)).length;
+    const effectiveTotal = stats.total - noSignCount;
+    const pct = effectiveTotal > 0 ? ((stats.visited / effectiveTotal) * 100).toFixed(1) : 0;
+    let line =
+      `<strong>${stats.visited}</strong> of ${effectiveTotal} settlements visited &nbsp;·&nbsp; ${pct}%` +
+      `&nbsp;·&nbsp; <span style="color:#64748b">updated ${stats.generated}</span>`;
+    if (noSignCount > 0) {
+      line += `&nbsp;·&nbsp; <span style="color:#94a3b8">${noSignCount} no sign</span>`;
+    }
+    document.getElementById("stats-line").innerHTML = line;
+    document.getElementById("progress-fill").style.width = pct + "%";
+  }
+
+  // ── Excluded section ───────────────────────────────────────────────────────
+  function renderExcludedSection() {
+    let section = document.getElementById("excluded-section");
+    if (!section) {
+      section = document.createElement("div");
+      section.id = "excluded-section";
+      document.getElementById("todo-panel").appendChild(section);
+    }
+
+    const names = [...excluded].filter(n => unvisitedByName.has(n)).sort();
+    if (names.length === 0) {
+      section.innerHTML = "";
+      return;
+    }
+
+    const isOpen = section.querySelector("details")?.open ?? false;
+    section.innerHTML =
+      `<details${isOpen ? " open" : ""}>` +
+      `<summary>Excluded — no sign (${names.length})</summary>` +
+      `<ul class="excluded-list">` +
+      names.map(n =>
+        `<li><span>${escHtml(n)}</span>` +
+        `<button class="restore-btn" data-name="${escHtml(n)}">Restore</button></li>`
+      ).join("") +
+      `</ul></details>`;
+  }
+
+  // ── No sign / restore actions ──────────────────────────────────────────────
+  function markNoSign(name) {
+    excluded.add(name);
+    saveExcluded();
+    map.closePopup();
+    const marker = unvisitedMarkers.get(name);
+    if (marker) map.removeLayer(marker);
+    const row = todoRowsByName.get(name);
+    if (row) row.style.display = "none";
+    renderExcludedSection();
+    renderStats();
+  }
+
+  function restoreSettlement(name) {
+    excluded.delete(name);
+    saveExcluded();
+    const marker = unvisitedMarkers.get(name);
+    if (marker) marker.addTo(map);
+    const row = todoRowsByName.get(name);
+    if (row) row.style.display = "";
+    renderExcludedSection();
+    renderStats();
+  }
+
+  // ── Event delegation ───────────────────────────────────────────────────────
+  document.addEventListener("click", e => {
+    const btn = e.target.closest("[data-name]");
+    if (!btn) return;
+    const name = btn.dataset.name;
+    if (btn.classList.contains("no-sign-btn") || btn.classList.contains("no-sign-row-btn")) {
+      markNoSign(name);
+    } else if (btn.classList.contains("restore-btn")) {
+      restoreSettlement(name);
+    }
+  });
+
+  // ── Map markers — visited ──────────────────────────────────────────────────
   for (const v of visited) {
     const m = visitedMarker(v.lat, v.lon);
     const dateStr = v.date ? `<div class="popup-detail">${v.date}</div>` : "";
     m.bindPopup(
-      `<div class="popup-visited"><img src="${v.photo}" alt="${v.name}" loading="lazy">` +
-      `<div class="popup-name">${v.name}</div>${dateStr}</div>`,
+      `<div class="popup-visited"><img src="${v.photo}" alt="${escHtml(v.name)}" loading="lazy">` +
+      `<div class="popup-name">${escHtml(v.name)}</div>${dateStr}</div>`,
       { maxWidth: 280 }
     );
     m.addTo(map);
   }
 
+  // ── Map markers — unvisited ────────────────────────────────────────────────
   for (const u of unvisited) {
     const m = unvisitedMarker(u.lat, u.lon);
-    m.bindPopup(
-      `<div class="popup-name">${u.name}</div>` +
-      `<div class="popup-detail">${u.distance_km} km from home</div>`,
-      { maxWidth: 220 }
-    );
-    m.addTo(map);
+
+    const popupEl = document.createElement("div");
+    popupEl.innerHTML =
+      `<div class="popup-name">${escHtml(u.name)}</div>` +
+      `<div class="popup-detail">${u.distance_km} km from home</div>` +
+      `<button class="no-sign-btn" data-name="${escHtml(u.name)}">No sign here</button>`;
+    m.bindPopup(popupEl, { maxWidth: 220 });
+
+    unvisitedMarkers.set(u.name, m);
+    if (!excluded.has(u.name)) m.addTo(map);
   }
 
-  // To Do list — sorted by distance
+  // ── To Do list ────────────────────────────────────────────────────────────
   const sorted = [...unvisited].sort((a, b) => a.distance_km - b.distance_km);
 
-  // CSV download
   const csvRows = ["Settlement,Distance (km)", ...sorted.map(u => `"${u.name}",${u.distance_km}`)];
   const csvBlob = new Blob([csvRows.join("\n")], { type: "text/csv" });
   const csvUrl  = URL.createObjectURL(csvBlob);
@@ -290,12 +462,26 @@ function showTab(tab) {
   panel.innerHTML =
     `<a id="todo-download" href="${csvUrl}" download="suffolk-unvisited.csv">⬇ Download as CSV</a>` +
     `<table>
-      <thead><tr><th>#</th><th>Settlement</th><th>Distance from home</th></tr></thead>
-      <tbody>` +
-    sorted.map((u, i) =>
-      `<tr><td style="color:#475569">${i + 1}</td><td>${u.name}</td><td class="dist">${u.distance_km} km</td></tr>`
-    ).join("") +
-    `</tbody></table>`;
+      <thead><tr><th>#</th><th>Settlement</th><th>Distance from home</th><th></th></tr></thead>
+      <tbody id="todo-tbody"></tbody>
+    </table>`;
+
+  const tbody = document.getElementById("todo-tbody");
+  sorted.forEach((u, i) => {
+    const tr = document.createElement("tr");
+    tr.dataset.name = u.name;
+    if (excluded.has(u.name)) tr.style.display = "none";
+    tr.innerHTML =
+      `<td style="color:#475569">${i + 1}</td>` +
+      `<td>${escHtml(u.name)}</td>` +
+      `<td class="dist">${u.distance_km} km</td>` +
+      `<td><button class="no-sign-row-btn" data-name="${escHtml(u.name)}">No sign</button></td>`;
+    tbody.appendChild(tr);
+    todoRowsByName.set(u.name, tr);
+  });
+
+  renderStats();
+  renderExcludedSection();
 
 })();
 </script>
