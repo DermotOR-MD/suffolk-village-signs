@@ -178,6 +178,14 @@ def build(refresh_settlements=False):
     visited_names = set()
     visited = []
 
+    # Sort newest-first so a more recent photo always wins when two photos
+    # survive deduplication but match the same settlement.
+    photos.sort(key=lambda p: p["datetime"], reverse=True)
+
+    # Remove stale photos from a previous build before writing new ones.
+    for old in PHOTOS_OUT.iterdir():
+        old.unlink()
+
     for photo in photos:
         settlement, dist = nearest_settlement(photo["coords"], settlements)
         if settlement is None:
