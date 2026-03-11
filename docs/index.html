@@ -30,7 +30,6 @@
       font-weight: 600;
       letter-spacing: 0.02em;
       color: #e2e8f0;
-      margin-bottom: 6px;
     }
 
     #stats-line {
@@ -178,6 +177,24 @@
     .dot-visited   { background: #22c55e; border: 2px solid #166534; }
     .dot-unvisited { background: #94a3b8; border: 2px solid #475569; }
 
+    /* ── Admin mode: hide no-sign controls until unlocked ── */
+    body:not(.admin-mode) .no-sign-btn,
+    body:not(.admin-mode) .no-sign-row-btn { display: none !important; }
+    body:not(.admin-mode) #todo-panel thead th:last-child,
+    body:not(.admin-mode) #todo-panel tbody td:last-child  { display: none; }
+
+    /* ── Admin toggle button ── */
+    #admin-toggle {
+      background: none;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      opacity: 0.4;
+      padding: 0;
+      line-height: 1;
+    }
+    #admin-toggle:hover { opacity: 0.8; }
+
     /* ── No Sign button in map popup ── */
     .no-sign-btn {
       display: block;
@@ -262,8 +279,11 @@
 <body>
 
 <div id="header">
-  <h1>Suffolk Village Signs</h1>
-  <div id="stats-line">Loading…</div>
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+    <h1 style="margin-bottom:0">Suffolk Village Signs</h1>
+    <button id="admin-toggle" onclick="toggleAdmin()" title="Admin"></button>
+  </div>
+  <div id="stats-line" style="margin-bottom:6px">Loading…</div>
   <div id="progress-track"><div id="progress-fill"></div></div>
   <div id="tabs">
     <button class="tab-btn active" onclick="showTab('map')">Map</button>
@@ -282,6 +302,41 @@
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
+// ── Admin auth ───────────────────────────────────────────────────────────────
+const ADMIN_HASH = '997690e82d4cde654c9bff5eeb95a94fa155cb0e2a491bc538fdaaa97f13b289';
+
+async function sha256(str) {
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function toggleAdmin() {
+  const btn = document.getElementById('admin-toggle');
+  if (document.body.classList.contains('admin-mode')) {
+    document.body.classList.remove('admin-mode');
+    sessionStorage.removeItem('adminAuth');
+    btn.textContent = '🔒';
+    return;
+  }
+  const pw = prompt('Password:');
+  if (!pw) return;
+  if (await sha256(pw) === ADMIN_HASH) {
+    document.body.classList.add('admin-mode');
+    sessionStorage.setItem('adminAuth', '1');
+    btn.textContent = '🔓';
+  } else {
+    alert('Incorrect password.');
+  }
+}
+
+// Restore admin session across page reloads
+if (sessionStorage.getItem('adminAuth')) {
+  document.body.classList.add('admin-mode');
+  document.getElementById('admin-toggle').textContent = '🔓';
+} else {
+  document.getElementById('admin-toggle').textContent = '🔒';
+}
+
 // ── Tab switching ────────────────────────────────────────────────────────────
 let map;
 
