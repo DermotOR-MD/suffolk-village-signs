@@ -357,6 +357,12 @@ const excluded = (() => {
   catch { return new Set(); }
 })();
 function saveExcluded() { localStorage.setItem(EXCLUDED_KEY, JSON.stringify([...excluded])); }
+function formatDate(iso) {
+  if (!iso) return '';
+  const [y, m, d] = iso.split('-').map(Number);
+  return new Date(y, m - 1, d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
 function escHtml(s) {
   return String(s)
     .replace(/&/g, '&amp;').replace(/</g, '&lt;')
@@ -482,7 +488,7 @@ function escHtml(s) {
   // ── Map markers — visited ──────────────────────────────────────────────────
   for (const v of visited) {
     const m = visitedMarker(v.lat, v.lon);
-    const dateStr = v.date ? `<div class="popup-detail">${v.date}</div>` : "";
+    const dateStr = v.date ? `<div class="popup-detail">${formatDate(v.date)}</div>` : "";
     m.bindPopup(
       `<div class="popup-visited"><img src="${v.photo}" alt="${escHtml(v.name)}" loading="lazy">` +
       `<div class="popup-name">${escHtml(v.name)}</div>${dateStr}</div>`,
