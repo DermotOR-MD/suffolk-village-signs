@@ -159,6 +159,19 @@
     .popup-name { font-weight: 600; font-size: 0.95rem; color: #1e293b; }
     .popup-detail { font-size: 0.78rem; color: #64748b; margin-top: 2px; }
 
+    /* ── Visited place labels ── */
+    .visited-label {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #166534;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    .visited-label::before { display: none; }
+
     /* ── Legend ── */
     #legend {
       position: absolute;
@@ -496,6 +509,7 @@ function escHtml(s) {
       `<img src="${p}" alt="${escHtml(v.name)}" loading="lazy">`
     ).join("");
 
+    m.bindTooltip(escHtml(v.name), { permanent: true, direction: 'top', className: 'visited-label' });
     m.bindPopup(
       `<div class="popup-visited">${imgsHtml}` +
       `<div class="popup-name">${escHtml(v.name)}</div>${dateStr}</div>`,

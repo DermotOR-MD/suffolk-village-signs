@@ -217,8 +217,8 @@ def build(refresh_settlements=False):
         date_str = rep["datetime"].strftime("%Y-%m-%d") if rep["datetime"] != datetime.min else None
         visited.append({
             "name":   name,
-            "lat":    rep["coords"][0],
-            "lon":    rep["coords"][1],
+            "lat":    settlement["lat"],
+            "lon":    settlement["lon"],
             "photos": photo_paths,
             "date":   date_str,
         })
