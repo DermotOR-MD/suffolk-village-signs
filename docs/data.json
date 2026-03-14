@@ -540,9 +540,9 @@
       "date": "2021-09-26"
     },
     {
-      "name": "Bush Green",
-      "lat": 52.1805909,
-      "lon": 0.7935806,
+      "name": "Bradfield St Clare",
+      "lat": 52.1876009,
+      "lon": 0.7872639,
       "photos": [
         "photos/30A7EABC-81EA-4B8A-9BE0-BB5DEEBB5D1F.jpg"
       ],
@@ -3105,12 +3105,6 @@
       "distance_km": 12.0
     },
     {
-      "name": "Bradfield St Clare",
-      "lat": 52.1876009,
-      "lon": 0.7872639,
-      "distance_km": 9.4
-    },
-    {
       "name": "Bradfield St George",
       "lat": 52.2053447,
       "lon": 0.7983114,
@@ -4453,6 +4447,12 @@
       "lat": 52.193786,
       "lon": 0.7235371,
       "distance_km": 13.0
+    },
+    {
+      "name": "Bush Green",
+      "lat": 52.1805909,
+      "lon": 0.7935806,
+      "distance_km": 9.6
     },
     {
       "name": "Almshouse Green",

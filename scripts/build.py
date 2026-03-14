@@ -32,6 +32,7 @@ PHOTOS_OUT = ROOT / "docs" / "photos"
 DATA_DIR   = ROOT / "data"
 DOCS_DIR   = ROOT / "docs"
 SETTLEMENTS_FILE = DATA_DIR / "settlements.json"
+CORRECTIONS_FILE = DATA_DIR / "corrections.json"
 DATA_OUT         = DOCS_DIR / "data.json"
 
 # ── Config ────────────────────────────────────────────────────────────────────
@@ -225,7 +226,27 @@ def build(refresh_settlements=False):
         count_str = f" ({len(cluster)} photos)" if len(cluster) > 1 else ""
         print(f"  ✓  {name:<30}  {dist:.2f} km{count_str}")
 
-    # 4. Unvisited with distance from home
+    # 4. Apply manual corrections (wrong village matched due to GPS offset)
+    if CORRECTIONS_FILE.exists():
+        with open(CORRECTIONS_FILE) as f:
+            corrections = json.load(f)   # {"Wrong Name": "Correct Name", ...}
+        settlement_by_name = {s["name"]: s for s in settlements}
+        for entry in visited:
+            if entry["name"] in corrections:
+                wrong = entry["name"]
+                correct = corrections[wrong]
+                if correct in settlement_by_name:
+                    s = settlement_by_name[correct]
+                    entry["name"] = correct
+                    entry["lat"]  = s["lat"]
+                    entry["lon"]  = s["lon"]
+                    visited_names.discard(wrong)
+                    visited_names.add(correct)
+                    print(f"  correction: {wrong} → {correct}")
+                else:
+                    print(f"  warning: correction target '{correct}' not found in settlements")
+
+    # 5. Unvisited with distance from home
     print("\nBuilding unvisited list…")
     unvisited = []
     for s in settlements:
