@@ -35,11 +35,12 @@ SETTLEMENTS_FILE = DATA_DIR / "settlements.json"
 DATA_OUT         = DOCS_DIR / "data.json"
 
 # ── Config ────────────────────────────────────────────────────────────────────
-ALBUM_NAME     = "Village Signs"
-HOME_COORDS    = (52.2355, 0.9014)   # Elmswell, IP30 9HD (approx.)
-DEDUP_RADIUS_M = 50
-MATCH_RADIUS_KM = 1.5
-MAX_PHOTO_PX   = (1200, 1200)
+ALBUM_NAME      = "Village Signs"
+HOME_COORDS     = (52.2355, 0.9014)   # Elmswell, IP30 9HD (approx.)
+CLUSTER_RADIUS_M = 50
+CLUSTER_MINUTES  = 2
+MATCH_RADIUS_KM  = 1.5
+MAX_PHOTO_PX     = (1200, 1200)
 
 
 # ── Photo loading & deduplication ─────────────────────────────────────────────
@@ -74,21 +75,30 @@ def load_photos_from_library():
     return photos
 
 
-def deduplicate(photos):
-    """Cluster photos within DEDUP_RADIUS_M; keep most recent per cluster."""
+def cluster_photos(photos):
+    """Group photos within CLUSTER_RADIUS_M metres AND CLUSTER_MINUTES of each other.
+
+    Returns a list of clusters; each cluster is a list of photo dicts sorted
+    newest-first.  Clusters are also sorted newest-first (by their most recent photo).
+    """
     clusters = []
     for photo in photos:
         placed = False
         for cluster in clusters:
             rep = cluster[0]
-            if geodesic(photo["coords"], rep["coords"]).meters <= DEDUP_RADIUS_M:
+            dist = geodesic(photo["coords"], rep["coords"]).meters
+            mins = abs((photo["datetime"] - rep["datetime"]).total_seconds()) / 60
+            if dist <= CLUSTER_RADIUS_M and mins <= CLUSTER_MINUTES:
                 cluster.append(photo)
                 placed = True
                 break
         if not placed:
             clusters.append([photo])
 
-    return [max(c, key=lambda p: p["datetime"]) for c in clusters]
+    for c in clusters:
+        c.sort(key=lambda p: p["datetime"], reverse=True)
+    clusters.sort(key=lambda c: c[0]["datetime"], reverse=True)
+    return clusters
 
 # ── Settlement data ───────────────────────────────────────────────────────────
 
@@ -166,51 +176,54 @@ def build(refresh_settlements=False):
     print(f"\nReading from Photos library …")
     raw = load_photos_from_library()
     print(f"  {len(raw)} photos with GPS data")
-    photos = deduplicate(raw)
-    print(f"  {len(photos)} after deduplication")
+    clusters = cluster_photos(raw)
+    total_photos = sum(len(c) for c in clusters)
+    print(f"  {len(clusters)} location clusters ({total_photos} photos total)")
 
     # 2. Settlements
     print()
     settlements = load_settlements(refresh_settlements)
 
     # 3. Match & export
-    print("\nMatching photos to settlements…")
+    print("\nMatching clusters to settlements…")
     visited_names = set()
     visited = []
 
-    # Sort newest-first so a more recent photo always wins when two photos
-    # survive deduplication but match the same settlement.
-    photos.sort(key=lambda p: p["datetime"], reverse=True)
-
-    # Remove stale photos from a previous build before writing new ones.
+    # clusters are already sorted newest-first; remove stale photos before writing.
     for old in PHOTOS_OUT.iterdir():
         old.unlink()
 
-    for photo in photos:
-        settlement, dist = nearest_settlement(photo["coords"], settlements)
+    for cluster in clusters:
+        # Use the most-recent photo's coords for settlement matching.
+        rep = cluster[0]
+        settlement, dist = nearest_settlement(rep["coords"], settlements)
         if settlement is None:
-            print(f"  no match  {photo['path'].name}  (nearest >1.5km)")
+            print(f"  no match  {rep['path'].name}  (nearest >1.5km)")
             continue
 
         name = settlement["name"]
         if name in visited_names:
-            # Two photos matched the same settlement — keep first (most recent wins dedup)
-            print(f"  dup match {photo['path'].name}  → {name}, skipping")
+            print(f"  dup match {rep['path'].name}  → {name}, skipping")
             continue
         visited_names.add(name)
 
-        out_name = photo["path"].stem + ".jpg"
-        save_web_photo(photo["img"], PHOTOS_OUT / out_name)
+        # Save every photo in the cluster.
+        photo_paths = []
+        for photo in cluster:
+            out_name = photo["path"].stem + ".jpg"
+            save_web_photo(photo["img"], PHOTOS_OUT / out_name)
+            photo_paths.append(f"photos/{out_name}")
 
-        date_str = photo["datetime"].strftime("%Y-%m-%d") if photo["datetime"] != datetime.min else None
+        date_str = rep["datetime"].strftime("%Y-%m-%d") if rep["datetime"] != datetime.min else None
         visited.append({
-            "name":  name,
-            "lat":   photo["coords"][0],
-            "lon":   photo["coords"][1],
-            "photo": f"photos/{out_name}",
-            "date":  date_str,
+            "name":   name,
+            "lat":    rep["coords"][0],
+            "lon":    rep["coords"][1],
+            "photos": photo_paths,
+            "date":   date_str,
         })
-        print(f"  ✓  {name:<30}  {dist:.2f} km")
+        count_str = f" ({len(cluster)} photos)" if len(cluster) > 1 else ""
+        print(f"  ✓  {name:<30}  {dist:.2f} km{count_str}")
 
     # 4. Unvisited with distance from home
     print("\nBuilding unvisited list…")
