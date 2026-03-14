@@ -154,25 +154,7 @@
       margin-bottom: 4px;
     }
 
-    .carousel-nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 4px;
-    }
-
-    .carousel-nav button {
-      background: #e2e8f0;
-      border: none;
-      border-radius: 3px;
-      padding: 1px 9px;
-      font-size: 1.1rem;
-      line-height: 1.4;
-      cursor: pointer;
-    }
-
-    .carousel-nav button:hover { background: #cbd5e1; }
-    .carousel-count { font-size: 0.78rem; color: #64748b; }
+    .popup-visited img + img { margin-top: 4px; }
 
     .popup-name { font-weight: 600; font-size: 0.95rem; color: #1e293b; }
     .popup-detail { font-size: 0.78rem; color: #64748b; margin-top: 2px; }
@@ -389,17 +371,6 @@ function escHtml(s) {
     .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-// ── Photo carousel ───────────────────────────────────────────────────────────
-const carouselData = {};
-
-function carouselNav(id, dir) {
-  const d = carouselData[id];
-  if (!d) return;
-  d.idx = (d.idx + dir + d.photos.length) % d.photos.length;
-  document.getElementById(id + '-img').src = d.photos[d.idx];
-  document.getElementById(id + '-count').textContent = `${d.idx + 1} / ${d.photos.length}`;
-}
-
 // ── Main ─────────────────────────────────────────────────────────────────────
 (async () => {
   map = L.map("map", { center: [52.13, 0.95], zoom: 10 });
@@ -520,24 +491,13 @@ function carouselNav(id, dir) {
   for (const v of visited) {
     const m = visitedMarker(v.lat, v.lon);
     const photos = v.photos || (v.photo ? [v.photo] : []);
-    const id = 'c' + Math.random().toString(36).slice(2, 9);
-    carouselData[id] = { photos, idx: 0 };
-
     const dateStr = v.date ? `<div class="popup-detail">${formatDate(v.date)}</div>` : "";
-    let navHtml = "";
-    if (photos.length > 1) {
-      navHtml =
-        `<div class="carousel-nav">` +
-        `<button onclick="carouselNav('${id}',-1)">&#8249;</button>` +
-        `<span class="carousel-count" id="${id}-count">1 / ${photos.length}</span>` +
-        `<button onclick="carouselNav('${id}',1)">&#8250;</button>` +
-        `</div>`;
-    }
+    const imgsHtml = photos.map(p =>
+      `<img src="${p}" alt="${escHtml(v.name)}" loading="lazy">`
+    ).join("");
 
     m.bindPopup(
-      `<div class="popup-visited">` +
-      `<img id="${id}-img" src="${photos[0]}" alt="${escHtml(v.name)}" loading="lazy">` +
-      navHtml +
+      `<div class="popup-visited">${imgsHtml}` +
       `<div class="popup-name">${escHtml(v.name)}</div>${dateStr}</div>`,
       { maxWidth: 280 }
     );
