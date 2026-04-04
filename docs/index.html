@@ -177,6 +177,7 @@
     .legend-row { display: flex; align-items: center; gap: 7px; margin: 3px 0; }
     .legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
     .dot-visited   { background: #22c55e; border: 2px solid #166534; }
+    .dot-other     { background: #3B82F6; border: 2px solid #1D4ED8; }
     .dot-unvisited { background: #94a3b8; border: 2px solid #475569; }
 
     /* ── Admin mode: hide no-sign controls until unlocked ── */
@@ -298,8 +299,9 @@
 <div id="todo-panel"></div>
 
 <div id="legend">
-  <div class="legend-row"><div class="legend-dot dot-visited"></div>Visited</div>
-  <div class="legend-row"><div class="legend-dot dot-unvisited"></div>Not yet visited</div>
+  <div class="legend-row"><div class="legend-dot dot-visited"></div>Visited (Suffolk)</div>
+  <div class="legend-row"><div class="legend-dot dot-other"></div>Visited (Norfolk, Essex, Cambs)</div>
+  <div class="legend-row"><div class="legend-dot dot-unvisited"></div>Not yet visited (Suffolk)</div>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -383,6 +385,12 @@ function escHtml(s) {
   function visitedMarker(lat, lon) {
     return L.circleMarker([lat, lon], {
       radius: 7, fillColor: "#22c55e", fillOpacity: 0.9, color: "#166534", weight: 1.5,
+    });
+  }
+
+  function otherMarker(lat, lon) {
+    return L.circleMarker([lat, lon], {
+      radius: 7, fillColor: "#3B82F6", fillOpacity: 0.9, color: "#1D4ED8", weight: 1.5,
     });
   }
 
@@ -489,7 +497,7 @@ function escHtml(s) {
 
   // ── Map markers — visited ──────────────────────────────────────────────────
   for (const v of visited) {
-    const m = visitedMarker(v.lat, v.lon);
+    const m = v.county === "other" ? otherMarker(v.lat, v.lon) : visitedMarker(v.lat, v.lon);
     const photos = v.photos || (v.photo ? [v.photo] : []);
     const dateStr = v.date ? `<div class="popup-detail">${formatDate(v.date)}</div>` : "";
     const imgsHtml = photos.map(p =>

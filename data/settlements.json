@@ -1,0 +1,4376 @@
+[
+  {
+    "name": "Woolverstone",
+    "lat": 52.0027574,
+    "lon": 1.1820034,
+    "place": "village"
+  },
+  {
+    "name": "Chelmondiston",
+    "lat": 51.989904,
+    "lon": 1.2087457,
+    "place": "village"
+  },
+  {
+    "name": "Tattingstone White Horse",
+    "lat": 52.0019476,
+    "lon": 1.1114135,
+    "place": "village"
+  },
+  {
+    "name": "Tattingstone",
+    "lat": 51.991821,
+    "lon": 1.1100039,
+    "place": "village"
+  },
+  {
+    "name": "Stutton",
+    "lat": 51.9706229,
+    "lon": 1.1280461,
+    "place": "village"
+  },
+  {
+    "name": "Old Newton",
+    "lat": 52.2245535,
+    "lon": 1.003973,
+    "place": "village"
+  },
+  {
+    "name": "Kesgrave",
+    "lat": 52.0630898,
+    "lon": 1.2371279,
+    "place": "town"
+  },
+  {
+    "name": "Elmswell",
+    "lat": 52.2356789,
+    "lon": 0.911281,
+    "place": "village"
+  },
+  {
+    "name": "Cattawade",
+    "lat": 51.9580471,
+    "lon": 1.0589959,
+    "place": "village"
+  },
+  {
+    "name": "Stuston",
+    "lat": 52.3589272,
+    "lon": 1.1328511,
+    "place": "village"
+  },
+  {
+    "name": "Brandon",
+    "lat": 52.4482313,
+    "lon": 0.6240803,
+    "place": "town"
+  },
+  {
+    "name": "Gipping",
+    "lat": 52.2292492,
+    "lon": 1.0304566,
+    "place": "hamlet"
+  },
+  {
+    "name": "Haughley",
+    "lat": 52.2213392,
+    "lon": 0.9655004,
+    "place": "village"
+  },
+  {
+    "name": "Waldringfield",
+    "lat": 52.0516479,
+    "lon": 1.3224678,
+    "place": "village"
+  },
+  {
+    "name": "Kirton",
+    "lat": 52.0108529,
+    "lon": 1.3199496,
+    "place": "village"
+  },
+  {
+    "name": "Falkenham",
+    "lat": 52.0021688,
+    "lon": 1.340107,
+    "place": "village"
+  },
+  {
+    "name": "Newbourne",
+    "lat": 52.0392887,
+    "lon": 1.3132491,
+    "place": "village"
+  },
+  {
+    "name": "Hemley",
+    "lat": 52.033277,
+    "lon": 1.3313228,
+    "place": "village"
+  },
+  {
+    "name": "Aldeburgh",
+    "lat": 52.1523814,
+    "lon": 1.6015691,
+    "place": "town"
+  },
+  {
+    "name": "Woodbridge",
+    "lat": 52.0941323,
+    "lon": 1.3199383,
+    "place": "town"
+  },
+  {
+    "name": "Elveden",
+    "lat": 52.3865765,
+    "lon": 0.6788292,
+    "place": "hamlet"
+  },
+  {
+    "name": "Bury St Edmunds",
+    "lat": 52.2460367,
+    "lon": 0.7125173,
+    "place": "town"
+  },
+  {
+    "name": "Stowmarket",
+    "lat": 52.1878147,
+    "lon": 0.9973428,
+    "place": "town"
+  },
+  {
+    "name": "Stowupland",
+    "lat": 52.1984806,
+    "lon": 1.022316,
+    "place": "village"
+  },
+  {
+    "name": "Leiston",
+    "lat": 52.20648,
+    "lon": 1.5764329,
+    "place": "town"
+  },
+  {
+    "name": "Haverhill",
+    "lat": 52.0832721,
+    "lon": 0.4353932,
+    "place": "town"
+  },
+  {
+    "name": "Kedington",
+    "lat": 52.0918944,
+    "lon": 0.4879314,
+    "place": "village"
+  },
+  {
+    "name": "Hundon",
+    "lat": 52.1130766,
+    "lon": 0.538142,
+    "place": "village"
+  },
+  {
+    "name": "Great Thurlow",
+    "lat": 52.1249771,
+    "lon": 0.4510384,
+    "place": "village"
+  },
+  {
+    "name": "Little Thurlow",
+    "lat": 52.1333349,
+    "lon": 0.4494675,
+    "place": "village"
+  },
+  {
+    "name": "Great Bradley",
+    "lat": 52.1513868,
+    "lon": 0.4375921,
+    "place": "village"
+  },
+  {
+    "name": "Sudbury",
+    "lat": 52.0401524,
+    "lon": 0.7299495,
+    "place": "town"
+  },
+  {
+    "name": "Newmarket",
+    "lat": 52.2443103,
+    "lon": 0.4065503,
+    "place": "town"
+  },
+  {
+    "name": "Shotley Gate",
+    "lat": 51.9579124,
+    "lon": 1.2686199,
+    "place": "village"
+  },
+  {
+    "name": "Shotley",
+    "lat": 51.968914,
+    "lon": 1.2528292,
+    "place": "village"
+  },
+  {
+    "name": "Lower Holbrook",
+    "lat": 51.9707249,
+    "lon": 1.1705548,
+    "place": "hamlet"
+  },
+  {
+    "name": "Harkstead",
+    "lat": 51.9691158,
+    "lon": 1.1836934,
+    "place": "village"
+  },
+  {
+    "name": "Freston",
+    "lat": 52.0076649,
+    "lon": 1.1599088,
+    "place": "hamlet"
+  },
+  {
+    "name": "Calford Green",
+    "lat": 52.0797986,
+    "lon": 0.4777532,
+    "place": "hamlet"
+  },
+  {
+    "name": "Little Wratting",
+    "lat": 52.1006692,
+    "lon": 0.466016,
+    "place": "hamlet"
+  },
+  {
+    "name": "Great Wratting",
+    "lat": 52.1062576,
+    "lon": 0.4622337,
+    "place": "village"
+  },
+  {
+    "name": "Boxford",
+    "lat": 52.029187,
+    "lon": 0.8598002,
+    "place": "village"
+  },
+  {
+    "name": "Polstead",
+    "lat": 52.0067906,
+    "lon": 0.9002964,
+    "place": "village"
+  },
+  {
+    "name": "Groton",
+    "lat": 52.0394482,
+    "lon": 0.8552061,
+    "place": "village"
+  },
+  {
+    "name": "Rose Green",
+    "lat": 52.0632907,
+    "lon": 0.8772764,
+    "place": "hamlet"
+  },
+  {
+    "name": "Brent Eleigh",
+    "lat": 52.0948873,
+    "lon": 0.8350406,
+    "place": "village"
+  },
+  {
+    "name": "Monks Eleigh",
+    "lat": 52.0920401,
+    "lon": 0.8694358,
+    "place": "village"
+  },
+  {
+    "name": "Chelsworth",
+    "lat": 52.0954891,
+    "lon": 0.8902146,
+    "place": "village"
+  },
+  {
+    "name": "Bildeston",
+    "lat": 52.1069481,
+    "lon": 0.9098846,
+    "place": "village"
+  },
+  {
+    "name": "Hitcham",
+    "lat": 52.1232138,
+    "lon": 0.8950481,
+    "place": "hamlet"
+  },
+  {
+    "name": "Cross Green",
+    "lat": 52.1386376,
+    "lon": 0.9056367,
+    "place": "hamlet"
+  },
+  {
+    "name": "Thorpe Morieux",
+    "lat": 52.1438276,
+    "lon": 0.8373296,
+    "place": "village"
+  },
+  {
+    "name": "Hitcham Causeway",
+    "lat": 52.1297047,
+    "lon": 0.9031847,
+    "place": "hamlet"
+  },
+  {
+    "name": "Felsham",
+    "lat": 52.1787597,
+    "lon": 0.8431397,
+    "place": "village"
+  },
+  {
+    "name": "Preston St. Mary",
+    "lat": 52.1191911,
+    "lon": 0.8357589,
+    "place": "village"
+  },
+  {
+    "name": "Kettlebaston",
+    "lat": 52.1156791,
+    "lon": 0.8707189,
+    "place": "hamlet"
+  },
+  {
+    "name": "Gedding",
+    "lat": 52.1852835,
+    "lon": 0.8524332,
+    "place": "village"
+  },
+  {
+    "name": "Rattlesden",
+    "lat": 52.1935467,
+    "lon": 0.8970414,
+    "place": "village"
+  },
+  {
+    "name": "Poystreet Green",
+    "lat": 52.1860636,
+    "lon": 0.8963219,
+    "place": "hamlet"
+  },
+  {
+    "name": "Drinkstone Green",
+    "lat": 52.2057181,
+    "lon": 0.8663341,
+    "place": "hamlet"
+  },
+  {
+    "name": "Drinkstone",
+    "lat": 52.2184959,
+    "lon": 0.8675086,
+    "place": "village"
+  },
+  {
+    "name": "Woolpit",
+    "lat": 52.2247689,
+    "lon": 0.8880944,
+    "place": "village"
+  },
+  {
+    "name": "Woolpit Green",
+    "lat": 52.2164854,
+    "lon": 0.8938507,
+    "place": "hamlet"
+  },
+  {
+    "name": "Tostock",
+    "lat": 52.2366907,
+    "lon": 0.8618851,
+    "place": "village"
+  },
+  {
+    "name": "Beyton",
+    "lat": 52.2328099,
+    "lon": 0.8301546,
+    "place": "village"
+  },
+  {
+    "name": "Norton",
+    "lat": 52.2552284,
+    "lon": 0.8670782,
+    "place": "village"
+  },
+  {
+    "name": "Stanton Street",
+    "lat": 52.265056,
+    "lon": 0.8640642,
+    "place": "hamlet"
+  },
+  {
+    "name": "Stowlangtoft",
+    "lat": 52.2770384,
+    "lon": 0.8668853,
+    "place": "village"
+  },
+  {
+    "name": "Hunston",
+    "lat": 52.278119,
+    "lon": 0.8948167,
+    "place": "hamlet"
+  },
+  {
+    "name": "Badwell Ash",
+    "lat": 52.2827114,
+    "lon": 0.9157622,
+    "place": "village"
+  },
+  {
+    "name": "Bardwell",
+    "lat": 52.3266392,
+    "lon": 0.8492547,
+    "place": "village"
+  },
+  {
+    "name": "Stanton",
+    "lat": 52.3234959,
+    "lon": 0.8799893,
+    "place": "village"
+  },
+  {
+    "name": "West Street",
+    "lat": 52.3003534,
+    "lon": 0.9122275,
+    "place": "hamlet"
+  },
+  {
+    "name": "Hepworth",
+    "lat": 52.3375799,
+    "lon": 0.9133495,
+    "place": "village"
+  },
+  {
+    "name": "Barningham",
+    "lat": 52.35287,
+    "lon": 0.8902864,
+    "place": "village"
+  },
+  {
+    "name": "Coney Weston",
+    "lat": 52.3653942,
+    "lon": 0.8700653,
+    "place": "hamlet"
+  },
+  {
+    "name": "Knettishall",
+    "lat": 52.3869267,
+    "lon": 0.8907638,
+    "place": "hamlet"
+  },
+  {
+    "name": "Raydon",
+    "lat": 52.0081508,
+    "lon": 0.9854167,
+    "place": "village"
+  },
+  {
+    "name": "Shelley",
+    "lat": 52.0071487,
+    "lon": 0.9577423,
+    "place": "hamlet"
+  },
+  {
+    "name": "Withersfield",
+    "lat": 52.1028993,
+    "lon": 0.4119946,
+    "place": "village"
+  },
+  {
+    "name": "Barnardiston",
+    "lat": 52.1110286,
+    "lon": 0.4979094,
+    "place": "hamlet"
+  },
+  {
+    "name": "Stradishall",
+    "lat": 52.1448487,
+    "lon": 0.5537587,
+    "place": "village"
+  },
+  {
+    "name": "Chedburgh",
+    "lat": 52.1881073,
+    "lon": 0.6163143,
+    "place": "village"
+  },
+  {
+    "name": "Chevington",
+    "lat": 52.2079869,
+    "lon": 0.6140563,
+    "place": "village"
+  },
+  {
+    "name": "Layham",
+    "lat": 52.0251339,
+    "lon": 0.9635749,
+    "place": "hamlet"
+  },
+  {
+    "name": "Bungay",
+    "lat": 52.4562248,
+    "lon": 1.4373413,
+    "place": "town"
+  },
+  {
+    "name": "Beccles",
+    "lat": 52.4583779,
+    "lon": 1.5622924,
+    "place": "town"
+  },
+  {
+    "name": "Brantham",
+    "lat": 51.966985,
+    "lon": 1.0681798,
+    "place": "village"
+  },
+  {
+    "name": "Pin Mill",
+    "lat": 51.9959341,
+    "lon": 1.212112,
+    "place": "hamlet"
+  },
+  {
+    "name": "Kentford",
+    "lat": 52.2718128,
+    "lon": 0.5065085,
+    "place": "village"
+  },
+  {
+    "name": "Framlingham",
+    "lat": 52.2220579,
+    "lon": 1.3415864,
+    "place": "town"
+  },
+  {
+    "name": "Southwold",
+    "lat": 52.3260841,
+    "lon": 1.6793095,
+    "place": "town"
+  },
+  {
+    "name": "Walberswick",
+    "lat": 52.3139687,
+    "lon": 1.6616522,
+    "place": "village"
+  },
+  {
+    "name": "Dunwich",
+    "lat": 52.2769243,
+    "lon": 1.6284725,
+    "place": "village"
+  },
+  {
+    "name": "Westleton",
+    "lat": 52.2649819,
+    "lon": 1.5753945,
+    "place": "village"
+  },
+  {
+    "name": "Middleton",
+    "lat": 52.2548074,
+    "lon": 1.5585026,
+    "place": "village"
+  },
+  {
+    "name": "Darsham",
+    "lat": 52.2743793,
+    "lon": 1.5477298,
+    "place": "village"
+  },
+  {
+    "name": "Theberton",
+    "lat": 52.237235,
+    "lon": 1.5683522,
+    "place": "hamlet"
+  },
+  {
+    "name": "Eastbridge",
+    "lat": 52.2391104,
+    "lon": 1.5903623,
+    "place": "hamlet"
+  },
+  {
+    "name": "Sizewell",
+    "lat": 52.2078964,
+    "lon": 1.6202752,
+    "place": "hamlet"
+  },
+  {
+    "name": "Halesworth",
+    "lat": 52.3418147,
+    "lon": 1.5001649,
+    "place": "town"
+  },
+  {
+    "name": "Bramfield",
+    "lat": 52.3102628,
+    "lon": 1.51871,
+    "place": "village"
+  },
+  {
+    "name": "Walpole",
+    "lat": 52.3179106,
+    "lon": 1.4691315,
+    "place": "village"
+  },
+  {
+    "name": "Chediston",
+    "lat": 52.3466949,
+    "lon": 1.4609429,
+    "place": "village"
+  },
+  {
+    "name": "Wissett",
+    "lat": 52.3611085,
+    "lon": 1.4709239,
+    "place": "village"
+  },
+  {
+    "name": "Spexhall",
+    "lat": 52.3666359,
+    "lon": 1.4943044,
+    "place": "hamlet"
+  },
+  {
+    "name": "Blyford",
+    "lat": 52.3358373,
+    "lon": 1.5587286,
+    "place": "village"
+  },
+  {
+    "name": "Wenhaston",
+    "lat": 52.3246257,
+    "lon": 1.5556976,
+    "place": "village"
+  },
+  {
+    "name": "Thorington",
+    "lat": 52.3122216,
+    "lon": 1.5517561,
+    "place": "hamlet"
+  },
+  {
+    "name": "Aldringham",
+    "lat": 52.1938781,
+    "lon": 1.5785584,
+    "place": "village"
+  },
+  {
+    "name": "Knodishall",
+    "lat": 52.1998367,
+    "lon": 1.5503934,
+    "place": "village"
+  },
+  {
+    "name": "Thorpeness",
+    "lat": 52.1793334,
+    "lon": 1.6147103,
+    "place": "village"
+  },
+  {
+    "name": "Brockley Green",
+    "lat": 52.0946662,
+    "lon": 0.5132132,
+    "place": "hamlet"
+  },
+  {
+    "name": "Withersdale Street",
+    "lat": 52.3805862,
+    "lon": 1.3348475,
+    "place": "hamlet"
+  },
+  {
+    "name": "Metfield",
+    "lat": 52.3719714,
+    "lon": 1.3713412,
+    "place": "village"
+  },
+  {
+    "name": "Mendham",
+    "lat": 52.3976685,
+    "lon": 1.337629,
+    "place": "village"
+  },
+  {
+    "name": "Blythburgh",
+    "lat": 52.3209345,
+    "lon": 1.5979437,
+    "place": "village"
+  },
+  {
+    "name": "Clare",
+    "lat": 52.0793283,
+    "lon": 0.5820634,
+    "place": "town"
+  },
+  {
+    "name": "Felixstowe Ferry",
+    "lat": 51.9884355,
+    "lon": 1.3897154,
+    "place": "hamlet"
+  },
+  {
+    "name": "Orford",
+    "lat": 52.0949765,
+    "lon": 1.5344399,
+    "place": "town"
+  },
+  {
+    "name": "Hollesley",
+    "lat": 52.0487345,
+    "lon": 1.431963,
+    "place": "village"
+  },
+  {
+    "name": "Bawdsey",
+    "lat": 52.0094318,
+    "lon": 1.4193577,
+    "place": "village"
+  },
+  {
+    "name": "Alderton",
+    "lat": 52.0244212,
+    "lon": 1.4162838,
+    "place": "village"
+  },
+  {
+    "name": "Hadleigh",
+    "lat": 52.0441822,
+    "lon": 0.9542292,
+    "place": "town"
+  },
+  {
+    "name": "Gazeley",
+    "lat": 52.2483524,
+    "lon": 0.5178608,
+    "place": "village"
+  },
+  {
+    "name": "Wickham Market",
+    "lat": 52.1527229,
+    "lon": 1.3629945,
+    "place": "village"
+  },
+  {
+    "name": "Wixoe",
+    "lat": 52.0598278,
+    "lon": 0.5044495,
+    "place": "village"
+  },
+  {
+    "name": "Hinderclay",
+    "lat": 52.3528655,
+    "lon": 0.9745667,
+    "place": "village"
+  },
+  {
+    "name": "Botesdale",
+    "lat": 52.343046,
+    "lon": 1.0115232,
+    "place": "village"
+  },
+  {
+    "name": "Redgrave",
+    "lat": 52.3607066,
+    "lon": 1.0045704,
+    "place": "village"
+  },
+  {
+    "name": "Rickinghall",
+    "lat": 52.3382185,
+    "lon": 1.0034446,
+    "place": "village"
+  },
+  {
+    "name": "Nayland",
+    "lat": 51.9721605,
+    "lon": 0.8745995,
+    "place": "village"
+  },
+  {
+    "name": "Needham Market",
+    "lat": 52.1528468,
+    "lon": 1.0528347,
+    "place": "town"
+  },
+  {
+    "name": "Claydon",
+    "lat": 52.1065845,
+    "lon": 1.1110014,
+    "place": "village"
+  },
+  {
+    "name": "Bramford",
+    "lat": 52.0754182,
+    "lon": 1.1005827,
+    "place": "village"
+  },
+  {
+    "name": "Sproughton",
+    "lat": 52.0624107,
+    "lon": 1.0952717,
+    "place": "village"
+  },
+  {
+    "name": "Rushmere St Andrew",
+    "lat": 52.0712107,
+    "lon": 1.2109434,
+    "place": "village"
+  },
+  {
+    "name": "Nacton",
+    "lat": 52.0154281,
+    "lon": 1.2335833,
+    "place": "village"
+  },
+  {
+    "name": "Trimley St Martin",
+    "lat": 51.990966,
+    "lon": 1.3122621,
+    "place": "village"
+  },
+  {
+    "name": "Copdock",
+    "lat": 52.0305814,
+    "lon": 1.0813834,
+    "place": "village"
+  },
+  {
+    "name": "Capel St Mary",
+    "lat": 52.0036918,
+    "lon": 1.049505,
+    "place": "village"
+  },
+  {
+    "name": "Belstead",
+    "lat": 52.0278868,
+    "lon": 1.1063746,
+    "place": "village"
+  },
+  {
+    "name": "Grundisburgh",
+    "lat": 52.1136174,
+    "lon": 1.2472298,
+    "place": "village"
+  },
+  {
+    "name": "Great Bealings",
+    "lat": 52.0941744,
+    "lon": 1.2575037,
+    "place": "village"
+  },
+  {
+    "name": "Tuddenham St Martin",
+    "lat": 52.092114,
+    "lon": 1.2026189,
+    "place": "village"
+  },
+  {
+    "name": "Playford",
+    "lat": 52.086173,
+    "lon": 1.2328074,
+    "place": "village"
+  },
+  {
+    "name": "Little Bealings",
+    "lat": 52.08428,
+    "lon": 1.2527021,
+    "place": "village"
+  },
+  {
+    "name": "Fornham All Saints",
+    "lat": 52.2735585,
+    "lon": 0.6906814,
+    "place": "village"
+  },
+  {
+    "name": "Box Elder",
+    "lat": 36.6576511,
+    "lon": -76.7260675,
+    "place": "hamlet"
+  },
+  {
+    "name": "Skeetertown",
+    "lat": 36.6604285,
+    "lon": -76.579673,
+    "place": "hamlet"
+  },
+  {
+    "name": "Kings Crossing",
+    "lat": 36.7973715,
+    "lon": -76.6052302,
+    "place": "hamlet"
+  },
+  {
+    "name": "Russell",
+    "lat": 36.685706,
+    "lon": -76.5877289,
+    "place": "hamlet"
+  },
+  {
+    "name": "Everets",
+    "lat": 36.8393159,
+    "lon": -76.6255091,
+    "place": "hamlet"
+  },
+  {
+    "name": "Beales Corner",
+    "lat": 36.6501512,
+    "lon": -76.8491259,
+    "place": "hamlet"
+  },
+  {
+    "name": "Factory Hill",
+    "lat": 36.5615412,
+    "lon": -76.8582926,
+    "place": "hamlet"
+  },
+  {
+    "name": "Whaley",
+    "lat": 36.5915408,
+    "lon": -76.6696762,
+    "place": "hamlet"
+  },
+  {
+    "name": "Russell Point",
+    "lat": 36.8132049,
+    "lon": -76.6155084,
+    "place": "hamlet"
+  },
+  {
+    "name": "Kilby",
+    "lat": 36.7320942,
+    "lon": -76.6291194,
+    "place": "hamlet"
+  },
+  {
+    "name": "Pineville",
+    "lat": 36.6715398,
+    "lon": -76.8207921,
+    "place": "hamlet"
+  },
+  {
+    "name": "Leesville",
+    "lat": 36.6465401,
+    "lon": -76.6941217,
+    "place": "hamlet"
+  },
+  {
+    "name": "Myrtle",
+    "lat": 36.7729274,
+    "lon": -76.6919,
+    "place": "hamlet"
+  },
+  {
+    "name": "Bakers Crossing",
+    "lat": 36.6720952,
+    "lon": -76.6710654,
+    "place": "hamlet"
+  },
+  {
+    "name": "Indian Point Estates",
+    "lat": 36.7880723,
+    "lon": -76.6112948,
+    "place": "hamlet"
+  },
+  {
+    "name": "Suffolk",
+    "lat": 36.7281341,
+    "lon": -76.5834683,
+    "place": "city"
+  },
+  {
+    "name": "Pittmantown",
+    "lat": 36.5682079,
+    "lon": -76.8188473,
+    "place": "hamlet"
+  },
+  {
+    "name": "Deanes",
+    "lat": 36.8395931,
+    "lon": -76.4624473,
+    "place": "hamlet"
+  },
+  {
+    "name": "Lummis",
+    "lat": 36.6951505,
+    "lon": -76.7010667,
+    "place": "hamlet"
+  },
+  {
+    "name": "Saunders",
+    "lat": 36.640151,
+    "lon": -76.5755061,
+    "place": "hamlet"
+  },
+  {
+    "name": "Cleopus",
+    "lat": 36.5929298,
+    "lon": -76.8299588,
+    "place": "hamlet"
+  },
+  {
+    "name": "Lake Prince Meadows",
+    "lat": 36.8159827,
+    "lon": -76.6452319,
+    "place": "hamlet"
+  },
+  {
+    "name": "Somerton",
+    "lat": 36.5682081,
+    "lon": -76.7513458,
+    "place": "hamlet"
+  },
+  {
+    "name": "Palmyra",
+    "lat": 36.7598717,
+    "lon": -76.5907847,
+    "place": "hamlet"
+  },
+  {
+    "name": "Cherry Grove",
+    "lat": 36.5718187,
+    "lon": -76.9180162,
+    "place": "hamlet"
+  },
+  {
+    "name": "Nurney",
+    "lat": 36.6423733,
+    "lon": -76.613841,
+    "place": "hamlet"
+  },
+  {
+    "name": "Elwood",
+    "lat": 36.6762619,
+    "lon": -76.8238478,
+    "place": "hamlet"
+  },
+  {
+    "name": "Carver Terrace",
+    "lat": 36.6612619,
+    "lon": -76.5968958,
+    "place": "hamlet"
+  },
+  {
+    "name": "Franklin Junction",
+    "lat": 36.6125076,
+    "lon": -76.6475669,
+    "place": "hamlet"
+  },
+  {
+    "name": "South Quay",
+    "lat": 36.6223736,
+    "lon": -76.8885712,
+    "place": "hamlet"
+  },
+  {
+    "name": "Lake Prince Farms",
+    "lat": 36.8009827,
+    "lon": -76.639676,
+    "place": "hamlet"
+  },
+  {
+    "name": "Kenyon",
+    "lat": 36.73449,
+    "lon": -76.65515,
+    "place": "hamlet"
+  },
+  {
+    "name": "Nurneysville",
+    "lat": 36.6559842,
+    "lon": -76.637453,
+    "place": "hamlet"
+  },
+  {
+    "name": "Princeview Point",
+    "lat": 36.7973716,
+    "lon": -76.6241197,
+    "place": "hamlet"
+  },
+  {
+    "name": "Oak Grove",
+    "lat": 36.6604288,
+    "lon": -76.8446815,
+    "place": "hamlet"
+  },
+  {
+    "name": "Sweffling",
+    "lat": 52.2232952,
+    "lon": 1.4353098,
+    "place": "village"
+  },
+  {
+    "name": "Moulton",
+    "lat": 52.2522905,
+    "lon": 0.4825339,
+    "place": "village"
+  },
+  {
+    "name": "Eye",
+    "lat": 52.3226292,
+    "lon": 1.1463709,
+    "place": "town"
+  },
+  {
+    "name": "Exning",
+    "lat": 52.2654267,
+    "lon": 0.3727896,
+    "place": "village"
+  },
+  {
+    "name": "Stoke by Nayland",
+    "lat": 51.9892706,
+    "lon": 0.8966564,
+    "place": "village"
+  },
+  {
+    "name": "Stradbroke",
+    "lat": 52.3175951,
+    "lon": 1.2728286,
+    "place": "village"
+  },
+  {
+    "name": "Fressingfield",
+    "lat": 52.3468235,
+    "lon": 1.3177377,
+    "place": "village"
+  },
+  {
+    "name": "Cratfield",
+    "lat": 52.3264747,
+    "lon": 1.3904786,
+    "place": "village"
+  },
+  {
+    "name": "Melton",
+    "lat": 52.105752,
+    "lon": 1.3316632,
+    "place": "village"
+  },
+  {
+    "name": "Martlesham",
+    "lat": 52.0766609,
+    "lon": 1.2833852,
+    "place": "village"
+  },
+  {
+    "name": "Barton Mills",
+    "lat": 52.3335174,
+    "lon": 0.5200357,
+    "place": "village"
+  },
+  {
+    "name": "Tuddenham",
+    "lat": 52.3143082,
+    "lon": 0.5472061,
+    "place": "village"
+  },
+  {
+    "name": "Dalham",
+    "lat": 52.2269744,
+    "lon": 0.5211952,
+    "place": "village"
+  },
+  {
+    "name": "Saxmundham",
+    "lat": 52.2142535,
+    "lon": 1.4918009,
+    "place": "town"
+  },
+  {
+    "name": "Worlington",
+    "lat": 52.3327693,
+    "lon": 0.4844279,
+    "place": "village"
+  },
+  {
+    "name": "West Row",
+    "lat": 52.3536409,
+    "lon": 0.4594446,
+    "place": "village"
+  },
+  {
+    "name": "Herringswell",
+    "lat": 52.3015696,
+    "lon": 0.5194537,
+    "place": "hamlet"
+  },
+  {
+    "name": "Holywell Row",
+    "lat": 52.3666702,
+    "lon": 0.5105745,
+    "place": "village"
+  },
+  {
+    "name": "Beck Row",
+    "lat": 52.3721282,
+    "lon": 0.4868645,
+    "place": "village"
+  },
+  {
+    "name": "Needham Street",
+    "lat": 52.2637965,
+    "lon": 0.5187986,
+    "place": "hamlet"
+  },
+  {
+    "name": "Ousden",
+    "lat": 52.2079711,
+    "lon": 0.5433546,
+    "place": "village"
+  },
+  {
+    "name": "Cropley Grove",
+    "lat": 52.206586,
+    "lon": 0.5127855,
+    "place": "hamlet"
+  },
+  {
+    "name": "Risby",
+    "lat": 52.2672257,
+    "lon": 0.63283,
+    "place": "village"
+  },
+  {
+    "name": "Little Saxham",
+    "lat": 52.2412156,
+    "lon": 0.6329735,
+    "place": "village"
+  },
+  {
+    "name": "Higham",
+    "lat": 52.2605493,
+    "lon": 0.5560182,
+    "place": "village"
+  },
+  {
+    "name": "Burthorpe",
+    "lat": 52.2465935,
+    "lon": 0.5931226,
+    "place": "village"
+  },
+  {
+    "name": "Barrow",
+    "lat": 52.2421932,
+    "lon": 0.5837441,
+    "place": "village"
+  },
+  {
+    "name": "Denham",
+    "lat": 52.2309022,
+    "lon": 0.5657301,
+    "place": "village"
+  },
+  {
+    "name": "East Green",
+    "lat": 52.1560435,
+    "lon": 0.4626748,
+    "place": "hamlet"
+  },
+  {
+    "name": "Cowlinge",
+    "lat": 52.1635639,
+    "lon": 0.5061536,
+    "place": "village"
+  },
+  {
+    "name": "Hobbles Green",
+    "lat": 52.1517323,
+    "lon": 0.4896449,
+    "place": "hamlet"
+  },
+  {
+    "name": "Pound Green",
+    "lat": 52.1565883,
+    "lon": 0.5081358,
+    "place": "hamlet"
+  },
+  {
+    "name": "Mill Green",
+    "lat": 52.1550727,
+    "lon": 0.5029955,
+    "place": "hamlet"
+  },
+  {
+    "name": "Lambfair Green",
+    "lat": 52.1571033,
+    "lon": 0.5000353,
+    "place": "hamlet"
+  },
+  {
+    "name": "Little Bradley",
+    "lat": 52.1409669,
+    "lon": 0.4554908,
+    "place": "village"
+  },
+  {
+    "name": "Lidgate",
+    "lat": 52.1927181,
+    "lon": 0.5171515,
+    "place": "village"
+  },
+  {
+    "name": "Brome",
+    "lat": 52.3437234,
+    "lon": 1.1357694,
+    "place": "village"
+  },
+  {
+    "name": "Redlingfield",
+    "lat": 52.2948363,
+    "lon": 1.2048259,
+    "place": "village"
+  },
+  {
+    "name": "Horham",
+    "lat": 52.3045283,
+    "lon": 1.244484,
+    "place": "village"
+  },
+  {
+    "name": "Thwaite",
+    "lat": 52.2715814,
+    "lon": 1.1000953,
+    "place": "village"
+  },
+  {
+    "name": "Brockford Street",
+    "lat": 52.260113,
+    "lon": 1.101969,
+    "place": "village"
+  },
+  {
+    "name": "Winston Green",
+    "lat": 52.2074872,
+    "lon": 1.1757189,
+    "place": "village"
+  },
+  {
+    "name": "Pettaugh",
+    "lat": 52.1915943,
+    "lon": 1.16828,
+    "place": "village"
+  },
+  {
+    "name": "Gosbeck",
+    "lat": 52.1552944,
+    "lon": 1.1569131,
+    "place": "village"
+  },
+  {
+    "name": "Rendlesham",
+    "lat": 52.1300914,
+    "lon": 1.4127345,
+    "place": "village"
+  },
+  {
+    "name": "Tunstall",
+    "lat": 52.1443983,
+    "lon": 1.4474114,
+    "place": "village"
+  },
+  {
+    "name": "Otley",
+    "lat": 52.1512935,
+    "lon": 1.2213734,
+    "place": "village"
+  },
+  {
+    "name": "Hawstead",
+    "lat": 52.1988598,
+    "lon": 0.718927,
+    "place": "village"
+  },
+  {
+    "name": "Snape",
+    "lat": 52.1695036,
+    "lon": 1.5004691,
+    "place": "village"
+  },
+  {
+    "name": "Iken",
+    "lat": 52.1413811,
+    "lon": 1.5227027,
+    "place": "village"
+  },
+  {
+    "name": "Great Waldingfield",
+    "lat": 52.0579711,
+    "lon": 0.7811684,
+    "place": "village"
+  },
+  {
+    "name": "Little Waldingfield",
+    "lat": 52.0712614,
+    "lon": 0.8041789,
+    "place": "village"
+  },
+  {
+    "name": "Lindsey",
+    "lat": 52.0676811,
+    "lon": 0.8846821,
+    "place": "village"
+  },
+  {
+    "name": "Kersey",
+    "lat": 52.059731,
+    "lon": 0.9186492,
+    "place": "village"
+  },
+  {
+    "name": "Whatfield",
+    "lat": 52.0794106,
+    "lon": 0.9554705,
+    "place": "village"
+  },
+  {
+    "name": "Nedging Tye",
+    "lat": 52.1094642,
+    "lon": 0.9509292,
+    "place": "village"
+  },
+  {
+    "name": "Great Bricett",
+    "lat": 52.1162163,
+    "lon": 0.9797254,
+    "place": "village"
+  },
+  {
+    "name": "Offton",
+    "lat": 52.1062544,
+    "lon": 1.0146335,
+    "place": "village"
+  },
+  {
+    "name": "Somersham",
+    "lat": 52.0979935,
+    "lon": 1.0426219,
+    "place": "village"
+  },
+  {
+    "name": "Barking",
+    "lat": 52.1371728,
+    "lon": 1.0268173,
+    "place": "village"
+  },
+  {
+    "name": "Creeting St Mary",
+    "lat": 52.1688884,
+    "lon": 1.0587248,
+    "place": "village"
+  },
+  {
+    "name": "Stonham Aspal",
+    "lat": 52.1931476,
+    "lon": 1.119581,
+    "place": "village"
+  },
+  {
+    "name": "Mickfield",
+    "lat": 52.212636,
+    "lon": 1.1254656,
+    "place": "hamlet"
+  },
+  {
+    "name": "Brockford Green",
+    "lat": 52.246364,
+    "lon": 1.1096224,
+    "place": "village"
+  },
+  {
+    "name": "Wattisham",
+    "lat": 52.1261961,
+    "lon": 0.9367006,
+    "place": "hamlet"
+  },
+  {
+    "name": "Helmingham",
+    "lat": 52.1734318,
+    "lon": 1.2039047,
+    "place": "village"
+  },
+  {
+    "name": "Charsfield",
+    "lat": 52.161096,
+    "lon": 1.2923286,
+    "place": "village"
+  },
+  {
+    "name": "Bredfield",
+    "lat": 52.1271941,
+    "lon": 1.3135325,
+    "place": "village"
+  },
+  {
+    "name": "Hasketon",
+    "lat": 52.1078326,
+    "lon": 1.2873831,
+    "place": "village"
+  },
+  {
+    "name": "Culpho",
+    "lat": 52.0959042,
+    "lon": 1.225467,
+    "place": "hamlet"
+  },
+  {
+    "name": "Westerfield",
+    "lat": 52.0849673,
+    "lon": 1.1724479,
+    "place": "village"
+  },
+  {
+    "name": "Henley",
+    "lat": 52.1182051,
+    "lon": 1.1504584,
+    "place": "village"
+  },
+  {
+    "name": "Hemingstone",
+    "lat": 52.1404883,
+    "lon": 1.1417359,
+    "place": "village"
+  },
+  {
+    "name": "Coddenham",
+    "lat": 52.1457964,
+    "lon": 1.1178397,
+    "place": "village"
+  },
+  {
+    "name": "Earl Stonham",
+    "lat": 52.1888452,
+    "lon": 1.0973884,
+    "place": "hamlet"
+  },
+  {
+    "name": "Little Stonham",
+    "lat": 52.1980872,
+    "lon": 1.0993055,
+    "place": "village"
+  },
+  {
+    "name": "Kenton",
+    "lat": 52.2480976,
+    "lon": 1.2122813,
+    "place": "hamlet"
+  },
+  {
+    "name": "Dennington",
+    "lat": 52.2545581,
+    "lon": 1.342157,
+    "place": "village"
+  },
+  {
+    "name": "Bedfield",
+    "lat": 52.2532916,
+    "lon": 1.2515435,
+    "place": "village"
+  },
+  {
+    "name": "Bedingfield",
+    "lat": 52.2732616,
+    "lon": 1.1976042,
+    "place": "hamlet"
+  },
+  {
+    "name": "Thorndon",
+    "lat": 52.2860565,
+    "lon": 1.1292616,
+    "place": "village"
+  },
+  {
+    "name": "Denham",
+    "lat": 52.324927,
+    "lon": 1.2162939,
+    "place": "hamlet"
+  },
+  {
+    "name": "Wingfield",
+    "lat": 52.3453122,
+    "lon": 1.2696162,
+    "place": "hamlet"
+  },
+  {
+    "name": "Sudbourne",
+    "lat": 52.1225482,
+    "lon": 1.5237514,
+    "place": "village"
+  },
+  {
+    "name": "Boyton",
+    "lat": 52.0712926,
+    "lon": 1.4675698,
+    "place": "hamlet"
+  },
+  {
+    "name": "Witnesham",
+    "lat": 52.1064504,
+    "lon": 1.1860937,
+    "place": "village"
+  },
+  {
+    "name": "Framsden",
+    "lat": 52.193377,
+    "lon": 1.2181386,
+    "place": "village"
+  },
+  {
+    "name": "Cretingham",
+    "lat": 52.1959961,
+    "lon": 1.2586239,
+    "place": "village"
+  },
+  {
+    "name": "Kettleburgh",
+    "lat": 52.1927335,
+    "lon": 1.3131639,
+    "place": "village"
+  },
+  {
+    "name": "Stratford St Andrew",
+    "lat": 52.1889306,
+    "lon": 1.4484353,
+    "place": "village"
+  },
+  {
+    "name": "Campsea Ashe",
+    "lat": 52.1506217,
+    "lon": 1.401827,
+    "place": "village"
+  },
+  {
+    "name": "Bromeswell",
+    "lat": 52.1061932,
+    "lon": 1.3625714,
+    "place": "village"
+  },
+  {
+    "name": "Yoxford",
+    "lat": 52.2651979,
+    "lon": 1.5096724,
+    "place": "village"
+  },
+  {
+    "name": "Palgrave",
+    "lat": 52.3644842,
+    "lon": 1.1044938,
+    "place": "village"
+  },
+  {
+    "name": "Shottisham",
+    "lat": 52.0509147,
+    "lon": 1.3818187,
+    "place": "village"
+  },
+  {
+    "name": "Sutton",
+    "lat": 52.0678184,
+    "lon": 1.3629897,
+    "place": "village"
+  },
+  {
+    "name": "Ramsholt",
+    "lat": 52.0281784,
+    "lon": 1.3638925,
+    "place": "hamlet"
+  },
+  {
+    "name": "Ufford",
+    "lat": 52.1280091,
+    "lon": 1.349517,
+    "place": "village"
+  },
+  {
+    "name": "Kelsale",
+    "lat": 52.2310128,
+    "lon": 1.4919724,
+    "place": "village"
+  },
+  {
+    "name": "Carlton",
+    "lat": 52.227333,
+    "lon": 1.4916984,
+    "place": "village"
+  },
+  {
+    "name": "Rendham",
+    "lat": 52.231344,
+    "lon": 1.4384055,
+    "place": "hamlet"
+  },
+  {
+    "name": "Bruisyard",
+    "lat": 52.2459598,
+    "lon": 1.4073444,
+    "place": "hamlet"
+  },
+  {
+    "name": "Laxfield",
+    "lat": 52.3020325,
+    "lon": 1.3627671,
+    "place": "village"
+  },
+  {
+    "name": "Yaxley",
+    "lat": 52.3232068,
+    "lon": 1.110045,
+    "place": "village"
+  },
+  {
+    "name": "Finningham",
+    "lat": 52.2825596,
+    "lon": 1.0270708,
+    "place": "village"
+  },
+  {
+    "name": "Thurston",
+    "lat": 52.253011,
+    "lon": 0.8134917,
+    "place": "village"
+  },
+  {
+    "name": "Ixworth",
+    "lat": 52.2996238,
+    "lon": 0.8379129,
+    "place": "village"
+  },
+  {
+    "name": "Hopton",
+    "lat": 52.3733655,
+    "lon": 0.9297292,
+    "place": "village"
+  },
+  {
+    "name": "Homersfield",
+    "lat": 52.4190236,
+    "lon": 1.3600598,
+    "place": "village"
+  },
+  {
+    "name": "Flixton",
+    "lat": 52.4298936,
+    "lon": 1.4009365,
+    "place": "village"
+  },
+  {
+    "name": "Pakenham",
+    "lat": 52.2708828,
+    "lon": 0.824077,
+    "place": "village"
+  },
+  {
+    "name": "Great Ashfield",
+    "lat": 52.2702289,
+    "lon": 0.9259988,
+    "place": "village"
+  },
+  {
+    "name": "Wyverstone",
+    "lat": 52.2701113,
+    "lon": 0.9922408,
+    "place": "village"
+  },
+  {
+    "name": "Westhorpe",
+    "lat": 52.2820199,
+    "lon": 0.9929034,
+    "place": "village"
+  },
+  {
+    "name": "Walsham le Willows",
+    "lat": 52.3041878,
+    "lon": 0.9359401,
+    "place": "village"
+  },
+  {
+    "name": "Ixworth Thorpe",
+    "lat": 52.3211233,
+    "lon": 0.8100454,
+    "place": "village"
+  },
+  {
+    "name": "Troston",
+    "lat": 52.3161322,
+    "lon": 0.7836206,
+    "place": "hamlet"
+  },
+  {
+    "name": "Great Livermere",
+    "lat": 52.3076577,
+    "lon": 0.7677893,
+    "place": "village"
+  },
+  {
+    "name": "Honington",
+    "lat": 52.3365919,
+    "lon": 0.8023619,
+    "place": "village"
+  },
+  {
+    "name": "Sapiston",
+    "lat": 52.3404457,
+    "lon": 0.8162896,
+    "place": "village"
+  },
+  {
+    "name": "Culford",
+    "lat": 52.2979301,
+    "lon": 0.6945693,
+    "place": "hamlet"
+  },
+  {
+    "name": "Fornham St Martin",
+    "lat": 52.2705178,
+    "lon": 0.7160965,
+    "place": "village"
+  },
+  {
+    "name": "Great Barton",
+    "lat": 52.2709279,
+    "lon": 0.770001,
+    "place": "village"
+  },
+  {
+    "name": "Ingham",
+    "lat": 52.3029082,
+    "lon": 0.7177026,
+    "place": "village"
+  },
+  {
+    "name": "Barnham",
+    "lat": 52.3799406,
+    "lon": 0.7528073,
+    "place": "village"
+  },
+  {
+    "name": "Euston",
+    "lat": 52.3771568,
+    "lon": 0.7851181,
+    "place": "village"
+  },
+  {
+    "name": "Wetherden",
+    "lat": 52.2272212,
+    "lon": 0.9381511,
+    "place": "village"
+  },
+  {
+    "name": "Haughley Green",
+    "lat": 52.2386665,
+    "lon": 0.9739457,
+    "place": "village"
+  },
+  {
+    "name": "Bacton",
+    "lat": 52.2632579,
+    "lon": 1.0080204,
+    "place": "village"
+  },
+  {
+    "name": "Cotton",
+    "lat": 52.2620497,
+    "lon": 1.0347996,
+    "place": "village"
+  },
+  {
+    "name": "Mendlesham",
+    "lat": 52.2510164,
+    "lon": 1.0795174,
+    "place": "village"
+  },
+  {
+    "name": "Wetheringsett",
+    "lat": 52.2581096,
+    "lon": 1.1168538,
+    "place": "village"
+  },
+  {
+    "name": "Great Blakenham",
+    "lat": 52.1143138,
+    "lon": 1.0936225,
+    "place": "village"
+  },
+  {
+    "name": "Little Blakenham",
+    "lat": 52.0972212,
+    "lon": 1.0749915,
+    "place": "village"
+  },
+  {
+    "name": "Great Finborough",
+    "lat": 52.1794966,
+    "lon": 0.945364,
+    "place": "village"
+  },
+  {
+    "name": "Buxhall",
+    "lat": 52.1807425,
+    "lon": 0.9217413,
+    "place": "village"
+  },
+  {
+    "name": "Rougham Green",
+    "lat": 52.2195829,
+    "lon": 0.7964478,
+    "place": "hamlet"
+  },
+  {
+    "name": "Little Whelnetham",
+    "lat": 52.2056375,
+    "lon": 0.7654434,
+    "place": "village"
+  },
+  {
+    "name": "Great Whelnetham",
+    "lat": 52.200386,
+    "lon": 0.7542191,
+    "place": "village"
+  },
+  {
+    "name": "Stanningfield",
+    "lat": 52.1762825,
+    "lon": 0.7539013,
+    "place": "village"
+  },
+  {
+    "name": "Bradfield St Clare",
+    "lat": 52.1876009,
+    "lon": 0.7872639,
+    "place": "village"
+  },
+  {
+    "name": "Bradfield St George",
+    "lat": 52.2053447,
+    "lon": 0.7983114,
+    "place": "village"
+  },
+  {
+    "name": "High Rougham",
+    "lat": 52.2240269,
+    "lon": 0.8145606,
+    "place": "hamlet"
+  },
+  {
+    "name": "Rushbrooke",
+    "lat": 52.2191622,
+    "lon": 0.7693253,
+    "place": "village"
+  },
+  {
+    "name": "Whepstead",
+    "lat": 52.1933971,
+    "lon": 0.6759056,
+    "place": "village"
+  },
+  {
+    "name": "Hargrave",
+    "lat": 52.2068106,
+    "lon": 0.5895829,
+    "place": "village"
+  },
+  {
+    "name": "Lawshall",
+    "lat": 52.1559645,
+    "lon": 0.7234059,
+    "place": "village"
+  },
+  {
+    "name": "Shimpling",
+    "lat": 52.134743,
+    "lon": 0.7198868,
+    "place": "village"
+  },
+  {
+    "name": "Cockfield",
+    "lat": 52.1559118,
+    "lon": 0.7864055,
+    "place": "village"
+  },
+  {
+    "name": "Bradfield Combust",
+    "lat": 52.1811281,
+    "lon": 0.7652913,
+    "place": "village"
+  },
+  {
+    "name": "Nowton",
+    "lat": 52.2150263,
+    "lon": 0.7317251,
+    "place": "hamlet"
+  },
+  {
+    "name": "Brettenham",
+    "lat": 52.1509319,
+    "lon": 0.8730825,
+    "place": "village"
+  },
+  {
+    "name": "Burgh",
+    "lat": 52.1166641,
+    "lon": 1.2584744,
+    "place": "village"
+  },
+  {
+    "name": "Dallinghoo",
+    "lat": 52.1462625,
+    "lon": 1.3129511,
+    "place": "hamlet"
+  },
+  {
+    "name": "Letheringham",
+    "lat": 52.1722517,
+    "lon": 1.3241588,
+    "place": "hamlet"
+  },
+  {
+    "name": "Parham",
+    "lat": 52.1951933,
+    "lon": 1.3739492,
+    "place": "village"
+  },
+  {
+    "name": "Great Glemham",
+    "lat": 52.2050355,
+    "lon": 1.4242503,
+    "place": "village"
+  },
+  {
+    "name": "Bruisyard Street",
+    "lat": 52.240033,
+    "lon": 1.4195786,
+    "place": "village"
+  },
+  {
+    "name": "Cransford",
+    "lat": 52.2303545,
+    "lon": 1.395944,
+    "place": "hamlet"
+  },
+  {
+    "name": "Badingham",
+    "lat": 52.2621686,
+    "lon": 1.3805224,
+    "place": "village"
+  },
+  {
+    "name": "Brundish",
+    "lat": 52.2769146,
+    "lon": 1.3261494,
+    "place": "village"
+  },
+  {
+    "name": "Tannington",
+    "lat": 52.2599615,
+    "lon": 1.2862599,
+    "place": "village"
+  },
+  {
+    "name": "Wilby",
+    "lat": 52.3003732,
+    "lon": 1.2864177,
+    "place": "village"
+  },
+  {
+    "name": "Bucklesham",
+    "lat": 52.0302927,
+    "lon": 1.2692075,
+    "place": "village"
+  },
+  {
+    "name": "Levington",
+    "lat": 52.0062874,
+    "lon": 1.2521007,
+    "place": "village"
+  },
+  {
+    "name": "Ashbocking",
+    "lat": 52.1463694,
+    "lon": 1.192063,
+    "place": "village"
+  },
+  {
+    "name": "Swilland",
+    "lat": 52.131272,
+    "lon": 1.1966001,
+    "place": "village"
+  },
+  {
+    "name": "Brandeston",
+    "lat": 52.1979805,
+    "lon": 1.2890911,
+    "place": "village"
+  },
+  {
+    "name": "Earl Soham",
+    "lat": 52.2201146,
+    "lon": 1.2684188,
+    "place": "village"
+  },
+  {
+    "name": "Monk Soham",
+    "lat": 52.2396809,
+    "lon": 1.2393555,
+    "place": "hamlet"
+  },
+  {
+    "name": "Rishangles",
+    "lat": 52.2730335,
+    "lon": 1.1693702,
+    "place": "hamlet"
+  },
+  {
+    "name": "Uggeshall",
+    "lat": 52.3645718,
+    "lon": 1.5968051,
+    "place": "village"
+  },
+  {
+    "name": "Upper Holton",
+    "lat": 52.3534068,
+    "lon": 1.5301146,
+    "place": "hamlet"
+  },
+  {
+    "name": "Holton",
+    "lat": 52.3426095,
+    "lon": 1.5271935,
+    "place": "village"
+  },
+  {
+    "name": "Rumburgh",
+    "lat": 52.3803674,
+    "lon": 1.4469987,
+    "place": "village"
+  },
+  {
+    "name": "Debach",
+    "lat": 52.1425979,
+    "lon": 1.2773725,
+    "place": "village"
+  },
+  {
+    "name": "Easton",
+    "lat": 52.1794151,
+    "lon": 1.3356729,
+    "place": "village"
+  },
+  {
+    "name": "Peasenhall",
+    "lat": 52.2701103,
+    "lon": 1.4509436,
+    "place": "village"
+  },
+  {
+    "name": "Sibton",
+    "lat": 52.2724738,
+    "lon": 1.4693972,
+    "place": "hamlet"
+  },
+  {
+    "name": "Athelington",
+    "lat": 52.2922615,
+    "lon": 1.2384114,
+    "place": "hamlet"
+  },
+  {
+    "name": "Saxtead Green",
+    "lat": 52.2322708,
+    "lon": 1.3017511,
+    "place": "village"
+  },
+  {
+    "name": "Hacheston",
+    "lat": 52.1823763,
+    "lon": 1.3756777,
+    "place": "village"
+  },
+  {
+    "name": "Marlesford",
+    "lat": 52.1732476,
+    "lon": 1.4040614,
+    "place": "village"
+  },
+  {
+    "name": "Little Glemham",
+    "lat": 52.1736951,
+    "lon": 1.4213778,
+    "place": "village"
+  },
+  {
+    "name": "Blaxhall",
+    "lat": 52.1606624,
+    "lon": 1.4610896,
+    "place": "village"
+  },
+  {
+    "name": "Coldfair Green",
+    "lat": 52.1934854,
+    "lon": 1.5606711,
+    "place": "village"
+  },
+  {
+    "name": "Hintlesham",
+    "lat": 52.049283,
+    "lon": 1.0428109,
+    "place": "village"
+  },
+  {
+    "name": "Burstall",
+    "lat": 52.0605366,
+    "lon": 1.0575609,
+    "place": "village"
+  },
+  {
+    "name": "Washbrook",
+    "lat": 52.0377362,
+    "lon": 1.0897946,
+    "place": "village"
+  },
+  {
+    "name": "Chattisham",
+    "lat": 52.0396224,
+    "lon": 1.0479608,
+    "place": "village"
+  },
+  {
+    "name": "Elmsett",
+    "lat": 52.079322,
+    "lon": 1.0000435,
+    "place": "village"
+  },
+  {
+    "name": "Flowton",
+    "lat": 52.0808254,
+    "lon": 1.0381546,
+    "place": "village"
+  },
+  {
+    "name": "Ringshall",
+    "lat": 52.1231145,
+    "lon": 0.9918477,
+    "place": "village"
+  },
+  {
+    "name": "Milden",
+    "lat": 52.0809424,
+    "lon": 0.8540692,
+    "place": "village"
+  },
+  {
+    "name": "Newton",
+    "lat": 52.0322303,
+    "lon": 0.7943311,
+    "place": "village"
+  },
+  {
+    "name": "Edwardstone",
+    "lat": 52.0449549,
+    "lon": 0.8338009,
+    "place": "village"
+  },
+  {
+    "name": "Little Cornard",
+    "lat": 52.0196568,
+    "lon": 0.7656667,
+    "place": "village"
+  },
+  {
+    "name": "Bures",
+    "lat": 51.9711466,
+    "lon": 0.7763495,
+    "place": "village"
+  },
+  {
+    "name": "Worlingworth",
+    "lat": 52.2712472,
+    "lon": 1.2709888,
+    "place": "village"
+  },
+  {
+    "name": "Huntingfield",
+    "lat": 52.3168312,
+    "lon": 1.4273852,
+    "place": "village"
+  },
+  {
+    "name": "Cookley",
+    "lat": 52.3253708,
+    "lon": 1.446872,
+    "place": "hamlet"
+  },
+  {
+    "name": "Linstead Parva",
+    "lat": 52.3478628,
+    "lon": 1.4241108,
+    "place": "village"
+  },
+  {
+    "name": "Westhall",
+    "lat": 52.3696688,
+    "lon": 1.5645298,
+    "place": "village"
+  },
+  {
+    "name": "Brampton",
+    "lat": 52.3837587,
+    "lon": 1.5772165,
+    "place": "village"
+  },
+  {
+    "name": "Wrentham",
+    "lat": 52.3846393,
+    "lon": 1.6702494,
+    "place": "village"
+  },
+  {
+    "name": "Covehithe",
+    "lat": 52.37635,
+    "lon": 1.7055067,
+    "place": "village"
+  },
+  {
+    "name": "Kessingland",
+    "lat": 52.4197397,
+    "lon": 1.7122444,
+    "place": "village"
+  },
+  {
+    "name": "Gisleham",
+    "lat": 52.4360162,
+    "lon": 1.6970524,
+    "place": "village"
+  },
+  {
+    "name": "Carlton Colville",
+    "lat": 52.4503153,
+    "lon": 1.690776,
+    "place": "village"
+  },
+  {
+    "name": "Barnby",
+    "lat": 52.4475799,
+    "lon": 1.634491,
+    "place": "village"
+  },
+  {
+    "name": "Shipmeadow",
+    "lat": 52.4564711,
+    "lon": 1.5051349,
+    "place": "village"
+  },
+  {
+    "name": "Mettingham",
+    "lat": 52.4581185,
+    "lon": 1.483232,
+    "place": "village"
+  },
+  {
+    "name": "Weybread",
+    "lat": 52.3753282,
+    "lon": 1.2957081,
+    "place": "village"
+  },
+  {
+    "name": "Hoxne",
+    "lat": 52.3501173,
+    "lon": 1.2018093,
+    "place": "village"
+  },
+  {
+    "name": "Oakley",
+    "lat": 52.3572037,
+    "lon": 1.1786061,
+    "place": "village"
+  },
+  {
+    "name": "Thrandeston",
+    "lat": 52.3445071,
+    "lon": 1.102589,
+    "place": "village"
+  },
+  {
+    "name": "North Cove",
+    "lat": 52.4448397,
+    "lon": 1.6254357,
+    "place": "village"
+  },
+  {
+    "name": "Mutford",
+    "lat": 52.4359451,
+    "lon": 1.6513565,
+    "place": "village"
+  },
+  {
+    "name": "Rushmere",
+    "lat": 52.4246934,
+    "lon": 1.6667202,
+    "place": "village"
+  },
+  {
+    "name": "Henstead",
+    "lat": 52.4149032,
+    "lon": 1.666283,
+    "place": "village"
+  },
+  {
+    "name": "Shadingfield",
+    "lat": 52.3993447,
+    "lon": 1.576587,
+    "place": "village"
+  },
+  {
+    "name": "Stone Street",
+    "lat": 52.392165,
+    "lon": 1.4998978,
+    "place": "village"
+  },
+  {
+    "name": "St Michael, South Elmham",
+    "lat": 52.4025481,
+    "lon": 1.442273,
+    "place": "village"
+  },
+  {
+    "name": "St Margaret, South Elmham",
+    "lat": 52.4033336,
+    "lon": 1.4044216,
+    "place": "village"
+  },
+  {
+    "name": "Lakenheath",
+    "lat": 52.4175635,
+    "lon": 0.5180418,
+    "place": "town"
+  },
+  {
+    "name": "Eriswell",
+    "lat": 52.3744716,
+    "lon": 0.5317981,
+    "place": "village"
+  },
+  {
+    "name": "Icklingham",
+    "lat": 52.3240846,
+    "lon": 0.6040697,
+    "place": "village"
+  },
+  {
+    "name": "Cavenham",
+    "lat": 52.2986263,
+    "lon": 0.5823679,
+    "place": "village"
+  },
+  {
+    "name": "Lackford",
+    "lat": 52.3013114,
+    "lon": 0.6311922,
+    "place": "village"
+  },
+  {
+    "name": "Flempton",
+    "lat": 52.2962199,
+    "lon": 0.6567697,
+    "place": "village"
+  },
+  {
+    "name": "Hengrave",
+    "lat": 52.2860353,
+    "lon": 0.6727342,
+    "place": "village"
+  },
+  {
+    "name": "St Andrew, Ilketshall",
+    "lat": 52.4310433,
+    "lon": 1.5056265,
+    "place": "village"
+  },
+  {
+    "name": "Redisham",
+    "lat": 52.4041101,
+    "lon": 1.5399372,
+    "place": "village"
+  },
+  {
+    "name": "Sotterley",
+    "lat": 52.4058667,
+    "lon": 1.6051395,
+    "place": "village"
+  },
+  {
+    "name": "Worlingham",
+    "lat": 52.4513956,
+    "lon": 1.6004225,
+    "place": "village"
+  },
+  {
+    "name": "Ringsfield",
+    "lat": 52.4414036,
+    "lon": 1.5362211,
+    "place": "village"
+  },
+  {
+    "name": "St Margaret, Ilketshall",
+    "lat": 52.4161258,
+    "lon": 1.4543386,
+    "place": "village"
+  },
+  {
+    "name": "Debenham",
+    "lat": 52.223372,
+    "lon": 1.1811395,
+    "place": "village"
+  },
+  {
+    "name": "Boxted",
+    "lat": 52.1289065,
+    "lon": 0.6682676,
+    "place": "village"
+  },
+  {
+    "name": "Blundeston",
+    "lat": 52.5152492,
+    "lon": 1.7060308,
+    "place": "village"
+  },
+  {
+    "name": "East Bergholt",
+    "lat": 51.9784172,
+    "lon": 1.0179463,
+    "place": "village"
+  },
+  {
+    "name": "Higham",
+    "lat": 51.9818951,
+    "lon": 0.9638955,
+    "place": "village"
+  },
+  {
+    "name": "Westley",
+    "lat": 52.2487243,
+    "lon": 0.6691596,
+    "place": "village"
+  },
+  {
+    "name": "St James, South Elmham",
+    "lat": 52.3789893,
+    "lon": 1.4070439,
+    "place": "village"
+  },
+  {
+    "name": "All Saints, South Elmham",
+    "lat": 52.3897877,
+    "lon": 1.4396455,
+    "place": "village"
+  },
+  {
+    "name": "St Cross, South Elmham",
+    "lat": 52.4036666,
+    "lon": 1.3798215,
+    "place": "village"
+  },
+  {
+    "name": "St Peter, South Elmham",
+    "lat": 52.4128833,
+    "lon": 1.4323995,
+    "place": "hamlet"
+  },
+  {
+    "name": "St Nicholas, South Elmham",
+    "lat": 52.3951318,
+    "lon": 1.41386,
+    "place": "hamlet"
+  },
+  {
+    "name": "St Lawrence, Ilketshall",
+    "lat": 52.4157444,
+    "lon": 1.4844836,
+    "place": "hamlet"
+  },
+  {
+    "name": "Winston",
+    "lat": 52.2088954,
+    "lon": 1.1940201,
+    "place": "village"
+  },
+  {
+    "name": "Baylham",
+    "lat": 52.1282329,
+    "lon": 1.0819174,
+    "place": "hamlet"
+  },
+  {
+    "name": "Bentley",
+    "lat": 51.989667,
+    "lon": 1.075096,
+    "place": "village"
+  },
+  {
+    "name": "Holton St Mary",
+    "lat": 51.9917785,
+    "lon": 0.9999576,
+    "place": "village"
+  },
+  {
+    "name": "Stratford St Mary",
+    "lat": 51.9708408,
+    "lon": 0.9790102,
+    "place": "village"
+  },
+  {
+    "name": "Leavenheath",
+    "lat": 51.9998114,
+    "lon": 0.8465782,
+    "place": "village"
+  },
+  {
+    "name": "Assington",
+    "lat": 52.0087937,
+    "lon": 0.8179966,
+    "place": "village"
+  },
+  {
+    "name": "Acton",
+    "lat": 52.0701052,
+    "lon": 0.7620696,
+    "place": "village"
+  },
+  {
+    "name": "Erwarton",
+    "lat": 51.9671848,
+    "lon": 1.2319461,
+    "place": "hamlet"
+  },
+  {
+    "name": "Crowfield",
+    "lat": 52.1711682,
+    "lon": 1.1447666,
+    "place": "village"
+  },
+  {
+    "name": "Wickham Skeith",
+    "lat": 52.2812041,
+    "lon": 1.0731366,
+    "place": "hamlet"
+  },
+  {
+    "name": "West Stow",
+    "lat": 52.3054689,
+    "lon": 0.6672851,
+    "place": "village"
+  },
+  {
+    "name": "Sternfield",
+    "lat": 52.1994202,
+    "lon": 1.498002,
+    "place": "village"
+  },
+  {
+    "name": "Benhall Green",
+    "lat": 52.1991749,
+    "lon": 1.486123,
+    "place": "village"
+  },
+  {
+    "name": "Farnham",
+    "lat": 52.1888268,
+    "lon": 1.45462,
+    "place": "village"
+  },
+  {
+    "name": "Friston",
+    "lat": 52.1876362,
+    "lon": 1.5268014,
+    "place": "village"
+  },
+  {
+    "name": "North Green",
+    "lat": 52.2447062,
+    "lon": 1.5104391,
+    "place": "hamlet"
+  },
+  {
+    "name": "Foxhall",
+    "lat": 52.0345744,
+    "lon": 1.2379744,
+    "place": "hamlet"
+  },
+  {
+    "name": "Rattla Corner",
+    "lat": 52.2403949,
+    "lon": 1.5723895,
+    "place": "hamlet"
+  },
+  {
+    "name": "Semer",
+    "lat": 52.0815918,
+    "lon": 0.9186165,
+    "place": "village"
+  },
+  {
+    "name": "Great Cornard",
+    "lat": 52.0301658,
+    "lon": 0.7475329,
+    "place": "village"
+  },
+  {
+    "name": "Poslingford",
+    "lat": 52.103616,
+    "lon": 0.5837546,
+    "place": "village"
+  },
+  {
+    "name": "Stansfield",
+    "lat": 52.1371609,
+    "lon": 0.6065713,
+    "place": "hamlet"
+  },
+  {
+    "name": "Glemsford",
+    "lat": 52.0998438,
+    "lon": 0.6714666,
+    "place": "village"
+  },
+  {
+    "name": "Cavendish",
+    "lat": 52.0873118,
+    "lon": 0.6336715,
+    "place": "village"
+  },
+  {
+    "name": "Dorking Tye",
+    "lat": 51.994686,
+    "lon": 0.7966044,
+    "place": "hamlet"
+  },
+  {
+    "name": "Stanstead",
+    "lat": 52.1063234,
+    "lon": 0.6909612,
+    "place": "village"
+  },
+  {
+    "name": "Dorley's Corner",
+    "lat": 52.2371808,
+    "lon": 1.4892805,
+    "place": "hamlet"
+  },
+  {
+    "name": "Workhouse Green",
+    "lat": 52.0019952,
+    "lon": 0.7688906,
+    "place": "hamlet"
+  },
+  {
+    "name": "Hawkedon",
+    "lat": 52.1459565,
+    "lon": 0.6248163,
+    "place": "village"
+  },
+  {
+    "name": "Rede",
+    "lat": 52.1713246,
+    "lon": 0.6379525,
+    "place": "village"
+  },
+  {
+    "name": "Hartest",
+    "lat": 52.1414721,
+    "lon": 0.679155,
+    "place": "village"
+  },
+  {
+    "name": "Somerton",
+    "lat": 52.1464596,
+    "lon": 0.646509,
+    "place": "village"
+  },
+  {
+    "name": "Denston",
+    "lat": 52.1455799,
+    "lon": 0.5716505,
+    "place": "village"
+  },
+  {
+    "name": "Assington Green",
+    "lat": 52.1338327,
+    "lon": 0.590255,
+    "place": "hamlet"
+  },
+  {
+    "name": "Brockley",
+    "lat": 52.1595133,
+    "lon": 0.6694682,
+    "place": "village"
+  },
+  {
+    "name": "Shingle Street",
+    "lat": 52.0333553,
+    "lon": 1.4493846,
+    "place": "hamlet"
+  },
+  {
+    "name": "Hessett",
+    "lat": 52.2177672,
+    "lon": 0.8321568,
+    "place": "village"
+  },
+  {
+    "name": "Nether Street",
+    "lat": 52.2196302,
+    "lon": 0.8126589,
+    "place": "hamlet"
+  },
+  {
+    "name": "Rougham",
+    "lat": 52.2228819,
+    "lon": 0.8031744,
+    "place": "village"
+  },
+  {
+    "name": "Windsor Green",
+    "lat": 52.1591023,
+    "lon": 0.7690235,
+    "place": "hamlet"
+  },
+  {
+    "name": "Shimpling Street",
+    "lat": 52.1420697,
+    "lon": 0.7344397,
+    "place": "hamlet"
+  },
+  {
+    "name": "Wickhambrook",
+    "lat": 52.1701054,
+    "lon": 0.5500594,
+    "place": "village"
+  },
+  {
+    "name": "Wattisfield",
+    "lat": 52.3284355,
+    "lon": 0.9468944,
+    "place": "village"
+  },
+  {
+    "name": "Middleton Moor",
+    "lat": 52.2556213,
+    "lon": 1.5390596,
+    "place": "hamlet"
+  },
+  {
+    "name": "Fordley",
+    "lat": 52.2457112,
+    "lon": 1.5546617,
+    "place": "hamlet"
+  },
+  {
+    "name": "Allwood Green",
+    "lat": 52.3121064,
+    "lon": 1.0055869,
+    "place": "hamlet"
+  },
+  {
+    "name": "Polstead Heath",
+    "lat": 52.0237711,
+    "lon": 0.9122744,
+    "place": "hamlet"
+  },
+  {
+    "name": "Thorington Street",
+    "lat": 51.9813409,
+    "lon": 0.9248915,
+    "place": "hamlet"
+  },
+  {
+    "name": "Gislingham",
+    "lat": 52.3029061,
+    "lon": 1.0379731,
+    "place": "village"
+  },
+  {
+    "name": "Thelnetham",
+    "lat": 52.3667778,
+    "lon": 0.9573407,
+    "place": "village"
+  },
+  {
+    "name": "East End",
+    "lat": 51.974809,
+    "lon": 1.0540866,
+    "place": "village"
+  },
+  {
+    "name": "Crown Corner",
+    "lat": 52.2838214,
+    "lon": 1.3048736,
+    "place": "hamlet"
+  },
+  {
+    "name": "Lound",
+    "lat": 52.5306034,
+    "lon": 1.6918804,
+    "place": "village"
+  },
+  {
+    "name": "Flixton",
+    "lat": 52.5045457,
+    "lon": 1.7020138,
+    "place": "village"
+  },
+  {
+    "name": "Pettistree",
+    "lat": 52.1455175,
+    "lon": 1.3551196,
+    "place": "hamlet"
+  },
+  {
+    "name": "Horringer",
+    "lat": 52.2219765,
+    "lon": 0.6702577,
+    "place": "village"
+  },
+  {
+    "name": "Snape Watering",
+    "lat": 52.1863302,
+    "lon": 1.4851259,
+    "place": "hamlet"
+  },
+  {
+    "name": "Wherstead",
+    "lat": 52.0222998,
+    "lon": 1.14246,
+    "place": "village"
+  },
+  {
+    "name": "Reydon",
+    "lat": 52.3383192,
+    "lon": 1.6687647,
+    "place": "village"
+  },
+  {
+    "name": "Wangford",
+    "lat": 52.3552038,
+    "lon": 1.6221639,
+    "place": "village"
+  },
+  {
+    "name": "Forward Green",
+    "lat": 52.1965616,
+    "lon": 1.0709686,
+    "place": "village"
+  },
+  {
+    "name": "Bures Green",
+    "lat": 51.9829583,
+    "lon": 0.7828974,
+    "place": "hamlet"
+  },
+  {
+    "name": "Stoke-by-Clare",
+    "lat": 52.0634846,
+    "lon": 0.5406122,
+    "place": "village"
+  },
+  {
+    "name": "Occold",
+    "lat": 52.2921826,
+    "lon": 1.1595123,
+    "place": "village"
+  },
+  {
+    "name": "Fakenham Magna",
+    "lat": 52.3548546,
+    "lon": 0.803906,
+    "place": "village"
+  },
+  {
+    "name": "Santon Downham",
+    "lat": 52.456272,
+    "lon": 0.6680624,
+    "place": "hamlet"
+  },
+  {
+    "name": "Red Lodge",
+    "lat": 52.3053207,
+    "lon": 0.496672,
+    "place": "village"
+  },
+  {
+    "name": "Undley",
+    "lat": 52.4035709,
+    "lon": 0.4928507,
+    "place": "hamlet"
+  },
+  {
+    "name": "Wilde Street",
+    "lat": 52.3794326,
+    "lon": 0.5034187,
+    "place": "hamlet"
+  },
+  {
+    "name": "Naughton",
+    "lat": 52.1023678,
+    "lon": 0.9575691,
+    "place": "hamlet"
+  },
+  {
+    "name": "Wangford",
+    "lat": 52.4190051,
+    "lon": 0.5727314,
+    "place": "hamlet"
+  },
+  {
+    "name": "Somerleyton",
+    "lat": 52.5167909,
+    "lon": 1.658523,
+    "place": "village"
+  },
+  {
+    "name": "Haughley New Street",
+    "lat": 52.2197144,
+    "lon": 0.9439841,
+    "place": "hamlet"
+  },
+  {
+    "name": "East Green",
+    "lat": 52.236461,
+    "lon": 1.5171406,
+    "place": "hamlet"
+  },
+  {
+    "name": "Lavenham",
+    "lat": 52.1100356,
+    "lon": 0.7978942,
+    "place": "village"
+  },
+  {
+    "name": "Ampton",
+    "lat": 52.3078809,
+    "lon": 0.7357204,
+    "place": "hamlet"
+  },
+  {
+    "name": "Mill Green",
+    "lat": 52.0470665,
+    "lon": 0.8439057,
+    "place": "hamlet"
+  },
+  {
+    "name": "Sutton Heath",
+    "lat": 52.0813542,
+    "lon": 1.3881998,
+    "place": "village"
+  },
+  {
+    "name": "Long Melford",
+    "lat": 52.0736646,
+    "lon": 0.7152063,
+    "place": "village"
+  },
+  {
+    "name": "Capel St Andrew",
+    "lat": 52.08022,
+    "lon": 1.4657106,
+    "place": "hamlet"
+  },
+  {
+    "name": "Butley",
+    "lat": 52.1076997,
+    "lon": 1.4581897,
+    "place": "village"
+  },
+  {
+    "name": "Chillesford",
+    "lat": 52.1171217,
+    "lon": 1.4845182,
+    "place": "village"
+  },
+  {
+    "name": "Freckenham",
+    "lat": 52.3203349,
+    "lon": 0.4417751,
+    "place": "village"
+  },
+  {
+    "name": "Felixstowe",
+    "lat": 51.9639098,
+    "lon": 1.3515106,
+    "place": "town"
+  },
+  {
+    "name": "Brightwell",
+    "lat": 52.0406073,
+    "lon": 1.2792313,
+    "place": "village"
+  },
+  {
+    "name": "Eyke",
+    "lat": 52.1166526,
+    "lon": 1.3845169,
+    "place": "village"
+  },
+  {
+    "name": "Mill Green",
+    "lat": 52.1999892,
+    "lon": 1.127985,
+    "place": "hamlet"
+  },
+  {
+    "name": "Apsey Green",
+    "lat": 52.222123,
+    "lon": 1.3269674,
+    "place": "hamlet"
+  },
+  {
+    "name": "Kittle's Corner",
+    "lat": 52.1888832,
+    "lon": 1.2585416,
+    "place": "hamlet"
+  },
+  {
+    "name": "Monewden",
+    "lat": 52.1773653,
+    "lon": 1.2730829,
+    "place": "village"
+  },
+  {
+    "name": "Little London",
+    "lat": 52.1627718,
+    "lon": 0.9960257,
+    "place": "hamlet"
+  },
+  {
+    "name": "Badley",
+    "lat": 52.1715362,
+    "lon": 1.0209354,
+    "place": "hamlet"
+  },
+  {
+    "name": "Darmsden",
+    "lat": 52.1364489,
+    "lon": 1.0655883,
+    "place": "hamlet"
+  },
+  {
+    "name": "Combs",
+    "lat": 52.1694309,
+    "lon": 0.9852293,
+    "place": "village"
+  },
+  {
+    "name": "Benhall",
+    "lat": 52.204029,
+    "lon": 1.4709862,
+    "place": "hamlet"
+  },
+  {
+    "name": "Curlew Green",
+    "lat": 52.234961,
+    "lon": 1.4852137,
+    "place": "hamlet"
+  },
+  {
+    "name": "Gromford",
+    "lat": 52.1784112,
+    "lon": 1.4900192,
+    "place": "village"
+  },
+  {
+    "name": "Slaughden",
+    "lat": 52.1429898,
+    "lon": 1.5991958,
+    "place": "hamlet"
+  },
+  {
+    "name": "Boulge",
+    "lat": 52.1250629,
+    "lon": 1.2975072,
+    "place": "village"
+  },
+  {
+    "name": "Clopton",
+    "lat": 52.1262166,
+    "lon": 1.2428743,
+    "place": "village"
+  },
+  {
+    "name": "Flatford",
+    "lat": 51.9601481,
+    "lon": 1.0203775,
+    "place": "hamlet"
+  },
+  {
+    "name": "Shop Corner",
+    "lat": 51.9643936,
+    "lon": 1.2154513,
+    "place": "hamlet"
+  },
+  {
+    "name": "Holbrook",
+    "lat": 51.9835745,
+    "lon": 1.1577662,
+    "place": "village"
+  },
+  {
+    "name": "Trimley St Mary",
+    "lat": 51.9790254,
+    "lon": 1.3216245,
+    "place": "village"
+  },
+  {
+    "name": "Walton",
+    "lat": 51.9717076,
+    "lon": 1.340518,
+    "place": "village"
+  },
+  {
+    "name": "Stratton Hall",
+    "lat": 52.0030584,
+    "lon": 1.2688375,
+    "place": "hamlet"
+  },
+  {
+    "name": "Lower Falkenham",
+    "lat": 51.9969825,
+    "lon": 1.3448117,
+    "place": "hamlet"
+  },
+  {
+    "name": "Trimley Lower Street",
+    "lat": 51.9840601,
+    "lon": 1.2985757,
+    "place": "hamlet"
+  },
+  {
+    "name": "Thorpe Common",
+    "lat": 51.9909566,
+    "lon": 1.2964729,
+    "place": "hamlet"
+  },
+  {
+    "name": "Timworth",
+    "lat": 52.2897662,
+    "lon": 0.7174358,
+    "place": "hamlet"
+  },
+  {
+    "name": "Akenham",
+    "lat": 52.0966985,
+    "lon": 1.1340373,
+    "place": "hamlet"
+  },
+  {
+    "name": "Friday Street",
+    "lat": 52.1167897,
+    "lon": 1.4067334,
+    "place": "hamlet"
+  },
+  {
+    "name": "Butley High Corner",
+    "lat": 52.0905493,
+    "lon": 1.4744629,
+    "place": "hamlet"
+  },
+  {
+    "name": "Butley Low Corner",
+    "lat": 52.094115,
+    "lon": 1.4731111,
+    "place": "hamlet"
+  },
+  {
+    "name": "Butley Abbey",
+    "lat": 52.089745,
+    "lon": 1.4676625,
+    "place": "hamlet"
+  },
+  {
+    "name": "Spratt's Street",
+    "lat": 52.1045869,
+    "lon": 1.4048129,
+    "place": "hamlet"
+  },
+  {
+    "name": "Capel Green",
+    "lat": 52.0890723,
+    "lon": 1.454584,
+    "place": "hamlet"
+  },
+  {
+    "name": "Ely Hill",
+    "lat": 52.0757545,
+    "lon": 1.4518885,
+    "place": "hamlet"
+  },
+  {
+    "name": "Coddenham Green",
+    "lat": 52.1637186,
+    "lon": 1.0988212,
+    "place": "hamlet"
+  },
+  {
+    "name": "North Green",
+    "lat": 52.2099352,
+    "lon": 1.3806069,
+    "place": "hamlet"
+  },
+  {
+    "name": "Wantisden",
+    "lat": 52.1106167,
+    "lon": 1.4578112,
+    "place": "hamlet"
+  },
+  {
+    "name": "Nettlestead",
+    "lat": 52.106373,
+    "lon": 1.0518962,
+    "place": "village"
+  },
+  {
+    "name": "Willisham",
+    "lat": 52.1197967,
+    "lon": 1.0136383,
+    "place": "village"
+  },
+  {
+    "name": "Ashfield Green",
+    "lat": 52.313953,
+    "lon": 1.3147282,
+    "place": "hamlet"
+  },
+  {
+    "name": "Barking Tye",
+    "lat": 52.1305286,
+    "lon": 1.0165004,
+    "place": "village"
+  },
+  {
+    "name": "Sibton Green",
+    "lat": 52.2916825,
+    "lon": 1.481802,
+    "place": "hamlet"
+  },
+  {
+    "name": "Silverlace Green",
+    "lat": 52.1947057,
+    "lon": 1.3885668,
+    "place": "hamlet"
+  },
+  {
+    "name": "Mill Green",
+    "lat": 52.2028356,
+    "lon": 1.3852602,
+    "place": "hamlet"
+  },
+  {
+    "name": "Silverlace Green",
+    "lat": 52.2060188,
+    "lon": 1.4544767,
+    "place": "hamlet"
+  },
+  {
+    "name": "Benhall Street",
+    "lat": 52.1981085,
+    "lon": 1.4503139,
+    "place": "hamlet"
+  },
+  {
+    "name": "Friday Street",
+    "lat": 52.1896551,
+    "lon": 1.4709213,
+    "place": "hamlet"
+  },
+  {
+    "name": "Gibraltar",
+    "lat": 52.1404045,
+    "lon": 1.1994486,
+    "place": "hamlet"
+  },
+  {
+    "name": "Clopton Corner",
+    "lat": 52.1465264,
+    "lon": 1.250431,
+    "place": "hamlet"
+  },
+  {
+    "name": "Clopton Green",
+    "lat": 52.1455467,
+    "lon": 1.2373675,
+    "place": "hamlet"
+  },
+  {
+    "name": "Saxtead Little Green",
+    "lat": 52.2468292,
+    "lon": 1.2963833,
+    "place": "village"
+  },
+  {
+    "name": "Saxtead",
+    "lat": 52.2412585,
+    "lon": 1.3096871,
+    "place": "hamlet"
+  },
+  {
+    "name": "Maypole Green",
+    "lat": 52.2552347,
+    "lon": 1.3274788,
+    "place": "hamlet"
+  },
+  {
+    "name": "Capon Green",
+    "lat": 52.2567978,
+    "lon": 1.3531422,
+    "place": "hamlet"
+  },
+  {
+    "name": "Goddard's Corner",
+    "lat": 52.269037,
+    "lon": 1.3453306,
+    "place": "hamlet"
+  },
+  {
+    "name": "Owl's Green",
+    "lat": 52.2792906,
+    "lon": 1.3435496,
+    "place": "hamlet"
+  },
+  {
+    "name": "Heveningham",
+    "lat": 52.3021286,
+    "lon": 1.4215693,
+    "place": "village"
+  },
+  {
+    "name": "Ashfield cum Thorpe",
+    "lat": 52.217984,
+    "lon": 1.2352388,
+    "place": "village"
+  },
+  {
+    "name": "Aspall",
+    "lat": 52.238676,
+    "lon": 1.1736706,
+    "place": "hamlet"
+  },
+  {
+    "name": "Shelland",
+    "lat": 52.2041349,
+    "lon": 0.9313061,
+    "place": "village"
+  },
+  {
+    "name": "Harleston",
+    "lat": 52.2024214,
+    "lon": 0.9465453,
+    "place": "village"
+  },
+  {
+    "name": "Woolpit Heath",
+    "lat": 52.214439,
+    "lon": 0.9082004,
+    "place": "hamlet"
+  },
+  {
+    "name": "Borley Green",
+    "lat": 52.2092067,
+    "lon": 0.9173414,
+    "place": "hamlet"
+  },
+  {
+    "name": "Gedgrave",
+    "lat": 52.0845439,
+    "lon": 1.5116919,
+    "place": "hamlet"
+  },
+  {
+    "name": "Braiseworth",
+    "lat": 52.303232,
+    "lon": 1.1273078,
+    "place": "hamlet"
+  },
+  {
+    "name": "Upthorpe",
+    "lat": 52.31775,
+    "lon": 0.9043885,
+    "place": "hamlet"
+  },
+  {
+    "name": "Syleham",
+    "lat": 52.3606874,
+    "lon": 1.2424931,
+    "place": "hamlet"
+  },
+  {
+    "name": "Drakestone Green",
+    "lat": 52.0706446,
+    "lon": 0.9078509,
+    "place": "hamlet"
+  },
+  {
+    "name": "Thorpe Street",
+    "lat": 52.3577243,
+    "lon": 0.9659263,
+    "place": "hamlet"
+  },
+  {
+    "name": "Market Weston",
+    "lat": 52.3597314,
+    "lon": 0.9134538,
+    "place": "village"
+  },
+  {
+    "name": "Wortham",
+    "lat": 52.3536673,
+    "lon": 1.0564447,
+    "place": "village"
+  },
+  {
+    "name": "Mendlesham Green",
+    "lat": 52.227483,
+    "lon": 1.0692781,
+    "place": "village"
+  },
+  {
+    "name": "Magpie Green",
+    "lat": 52.3654063,
+    "lon": 1.043056,
+    "place": "hamlet"
+  },
+  {
+    "name": "North Common",
+    "lat": 52.3421019,
+    "lon": 0.9050398,
+    "place": "hamlet"
+  },
+  {
+    "name": "Frostenden",
+    "lat": 52.3732685,
+    "lon": 1.645158,
+    "place": "village"
+  },
+  {
+    "name": "Ipswich",
+    "lat": 52.0579324,
+    "lon": 1.1528095,
+    "place": "town"
+  },
+  {
+    "name": "Lowestoft",
+    "lat": 52.4766308,
+    "lon": 1.7537638,
+    "place": "town"
+  },
+  {
+    "name": "Ward Green",
+    "lat": 52.2368361,
+    "lon": 1.0000637,
+    "place": "hamlet"
+  },
+  {
+    "name": "Depden",
+    "lat": 52.1817359,
+    "lon": 0.5989493,
+    "place": "village"
+  },
+  {
+    "name": "Bloodman's Corner",
+    "lat": 52.537554,
+    "lon": 1.7015379,
+    "place": "hamlet"
+  },
+  {
+    "name": "Ashby",
+    "lat": 52.5375921,
+    "lon": 1.6682671,
+    "place": "hamlet"
+  },
+  {
+    "name": "Hinton",
+    "lat": 52.2897448,
+    "lon": 1.5781838,
+    "place": "hamlet"
+  },
+  {
+    "name": "Cross Green",
+    "lat": 52.1456636,
+    "lon": 0.6763185,
+    "place": "hamlet"
+  },
+  {
+    "name": "Battisford Tye",
+    "lat": 52.1485731,
+    "lon": 0.9598417,
+    "place": "village"
+  },
+  {
+    "name": "Battisford",
+    "lat": 52.151077,
+    "lon": 1.0042324,
+    "place": "village"
+  },
+  {
+    "name": "Great Saxham",
+    "lat": 52.2351455,
+    "lon": 0.6200411,
+    "place": "village"
+  },
+  {
+    "name": "Little Wenham",
+    "lat": 52.0104559,
+    "lon": 1.0337867,
+    "place": "village"
+  },
+  {
+    "name": "Great Wenham",
+    "lat": 52.0056066,
+    "lon": 1.0142456,
+    "place": "village"
+  },
+  {
+    "name": "Chilton",
+    "lat": 52.0524074,
+    "lon": 0.7544289,
+    "place": "hamlet"
+  },
+  {
+    "name": "Alpheton",
+    "lat": 52.1234241,
+    "lon": 0.7472163,
+    "place": "village"
+  },
+  {
+    "name": "Aldham",
+    "lat": 52.0632432,
+    "lon": 0.9717538,
+    "place": "village"
+  },
+  {
+    "name": "Barham",
+    "lat": 52.1232732,
+    "lon": 1.1327662,
+    "place": "village"
+  },
+  {
+    "name": "Culford Heath",
+    "lat": 52.3392728,
+    "lon": 0.7195787,
+    "place": "hamlet"
+  },
+  {
+    "name": "Ubbeston Green",
+    "lat": 52.2973043,
+    "lon": 1.403006,
+    "place": "hamlet"
+  },
+  {
+    "name": "Hoo",
+    "lat": 52.1822183,
+    "lon": 1.3008445,
+    "place": "village"
+  },
+  {
+    "name": "Oulton",
+    "lat": 52.4923127,
+    "lon": 1.7175239,
+    "place": "village"
+  },
+  {
+    "name": "Corton",
+    "lat": 52.5149874,
+    "lon": 1.7420286,
+    "place": "village"
+  },
+  {
+    "name": "Benacre",
+    "lat": 52.3942148,
+    "lon": 1.6919537,
+    "place": "village"
+  },
+  {
+    "name": "Barsham",
+    "lat": 52.4516016,
+    "lon": 1.5217304,
+    "place": "village"
+  },
+  {
+    "name": "South Cove",
+    "lat": 52.3681484,
+    "lon": 1.6715844,
+    "place": "village"
+  },
+  {
+    "name": "St John, Ilketshall",
+    "lat": 52.4358516,
+    "lon": 1.4709158,
+    "place": "hamlet"
+  },
+  {
+    "name": "Ellough",
+    "lat": 52.425396,
+    "lon": 1.5922445,
+    "place": "hamlet"
+  },
+  {
+    "name": "Sotherton",
+    "lat": 52.3581614,
+    "lon": 1.5845798,
+    "place": "hamlet"
+  },
+  {
+    "name": "Weston",
+    "lat": 52.429315,
+    "lon": 1.5729498,
+    "place": "village"
+  },
+  {
+    "name": "Willingham St Mary",
+    "lat": 52.4104444,
+    "lon": 1.5798591,
+    "place": "village"
+  },
+  {
+    "name": "Mellis",
+    "lat": 52.330442,
+    "lon": 1.0803088,
+    "place": "village"
+  },
+  {
+    "name": "Southolt",
+    "lat": 52.2739476,
+    "lon": 1.2158089,
+    "place": "hamlet"
+  },
+  {
+    "name": "Thornham Magna",
+    "lat": 52.297915,
+    "lon": 1.0846562,
+    "place": "hamlet"
+  },
+  {
+    "name": "Thornham Parva",
+    "lat": 52.3115899,
+    "lon": 1.091453,
+    "place": "hamlet"
+  },
+  {
+    "name": "Stoke Ash",
+    "lat": 52.2876797,
+    "lon": 1.1010359,
+    "place": "hamlet"
+  },
+  {
+    "name": "Creeting St Peter",
+    "lat": 52.1831446,
+    "lon": 1.0392788,
+    "place": "village"
+  },
+  {
+    "name": "Langham",
+    "lat": 52.2906926,
+    "lon": 0.8999855,
+    "place": "hamlet"
+  },
+  {
+    "name": "Onehouse",
+    "lat": 52.1975136,
+    "lon": 0.9543305,
+    "place": "village"
+  },
+  {
+    "name": "Little Finborough",
+    "lat": 52.1553149,
+    "lon": 0.9505211,
+    "place": "hamlet"
+  },
+  {
+    "name": "Hawstead Green",
+    "lat": 52.193786,
+    "lon": 0.7235371,
+    "place": "hamlet"
+  },
+  {
+    "name": "Bush Green",
+    "lat": 52.1805909,
+    "lon": 0.7935806,
+    "place": "hamlet"
+  },
+  {
+    "name": "Almshouse Green",
+    "lat": 52.1462437,
+    "lon": 0.8300051,
+    "place": "hamlet"
+  },
+  {
+    "name": "Gibb's Green",
+    "lat": 52.3020067,
+    "lon": 1.3062746,
+    "place": "hamlet"
+  },
+  {
+    "name": "Barley View",
+    "lat": 52.3028052,
+    "lon": 1.3009344,
+    "place": "hamlet"
+  },
+  {
+    "name": "Russels Green",
+    "lat": 52.307255,
+    "lon": 1.3014937,
+    "place": "hamlet"
+  },
+  {
+    "name": "Brundish Street",
+    "lat": 52.292423,
+    "lon": 1.3181352,
+    "place": "hamlet"
+  },
+  {
+    "name": "Foals Green",
+    "lat": 52.293627,
+    "lon": 1.3040509,
+    "place": "hamlet"
+  },
+  {
+    "name": "Stanway Green",
+    "lat": 52.2839073,
+    "lon": 1.2803272,
+    "place": "hamlet"
+  },
+  {
+    "name": "Wilby Green",
+    "lat": 52.2842037,
+    "lon": 1.2953523,
+    "place": "hamlet"
+  },
+  {
+    "name": "Cross Green",
+    "lat": 52.1670657,
+    "lon": 0.7707505,
+    "place": "hamlet"
+  },
+  {
+    "name": "Hollybush Corner",
+    "lat": 52.1994206,
+    "lon": 0.7961481,
+    "place": "hamlet"
+  },
+  {
+    "name": "Pitcher's Green",
+    "lat": 52.1909876,
+    "lon": 0.7999418,
+    "place": "hamlet"
+  },
+  {
+    "name": "Low Green",
+    "lat": 52.2160525,
+    "lon": 0.7333576,
+    "place": "hamlet"
+  },
+  {
+    "name": "Clopton Green",
+    "lat": 52.1628447,
+    "lon": 0.578877,
+    "place": "hamlet"
+  },
+  {
+    "name": "Thurston End",
+    "lat": 52.132602,
+    "lon": 0.6217934,
+    "place": "hamlet"
+  },
+  {
+    "name": "Malting End",
+    "lat": 52.1598801,
+    "lon": 0.5552827,
+    "place": "hamlet"
+  },
+  {
+    "name": "Fenstead End",
+    "lat": 52.1258597,
+    "lon": 0.6363149,
+    "place": "hamlet"
+  },
+  {
+    "name": "Ashfield Green",
+    "lat": 52.1729694,
+    "lon": 0.5759405,
+    "place": "hamlet"
+  },
+  {
+    "name": "Attleton Green",
+    "lat": 52.1649887,
+    "lon": 0.5421726,
+    "place": "hamlet"
+  },
+  {
+    "name": "Wickham Street",
+    "lat": 52.1570428,
+    "lon": 0.5664123,
+    "place": "hamlet"
+  },
+  {
+    "name": "Broad Green",
+    "lat": 52.2035305,
+    "lon": 0.6098356,
+    "place": "hamlet"
+  },
+  {
+    "name": "Tan Office Green",
+    "lat": 52.1985587,
+    "lon": 0.610496,
+    "place": "hamlet"
+  },
+  {
+    "name": "Sowley Green",
+    "lat": 52.1306275,
+    "lon": 0.4892176,
+    "place": "hamlet"
+  },
+  {
+    "name": "Cockfield Great Green",
+    "lat": 52.1686879,
+    "lon": 0.8021421,
+    "place": "hamlet"
+  },
+  {
+    "name": "Sicklesmere",
+    "lat": 52.2097244,
+    "lon": 0.7472188,
+    "place": "village"
+  },
+  {
+    "name": "Denham Green",
+    "lat": 52.3194576,
+    "lon": 1.220178,
+    "place": "hamlet"
+  },
+  {
+    "name": "Farley Green",
+    "lat": 52.1527208,
+    "lon": 0.5330113,
+    "place": "hamlet"
+  },
+  {
+    "name": "Chimney Street",
+    "lat": 52.1113321,
+    "lon": 0.5195997,
+    "place": "hamlet"
+  },
+  {
+    "name": "Cock and End",
+    "lat": 52.1485478,
+    "lon": 0.5207246,
+    "place": "hamlet"
+  },
+  {
+    "name": "High Street Green",
+    "lat": 52.1640227,
+    "lon": 0.933497,
+    "place": "hamlet"
+  },
+  {
+    "name": "Norton Little Green",
+    "lat": 52.2605619,
+    "lon": 0.896527,
+    "place": "village"
+  },
+  {
+    "name": "Pound Green",
+    "lat": 52.1692308,
+    "lon": 0.6709954,
+    "place": "hamlet"
+  },
+  {
+    "name": "Gulling Green",
+    "lat": 52.1770739,
+    "lon": 0.6718226,
+    "place": "hamlet"
+  },
+  {
+    "name": "Stonecross Green",
+    "lat": 52.1881531,
+    "lon": 0.666404,
+    "place": "hamlet"
+  },
+  {
+    "name": "Baxter's Green",
+    "lat": 52.1927971,
+    "lon": 0.5699096,
+    "place": "hamlet"
+  },
+  {
+    "name": "Genesis Green",
+    "lat": 52.1883375,
+    "lon": 0.5572828,
+    "place": "hamlet"
+  },
+  {
+    "name": "Smithwood Green",
+    "lat": 52.1376902,
+    "lon": 0.7805674,
+    "place": "hamlet"
+  },
+  {
+    "name": "Hulver Street",
+    "lat": 52.4248388,
+    "lon": 1.6304409,
+    "place": "hamlet"
+  },
+  {
+    "name": "Upper Street",
+    "lat": 52.1338682,
+    "lon": 0.6031647,
+    "place": "hamlet"
+  },
+  {
+    "name": "Pinford End",
+    "lat": 52.2033474,
+    "lon": 0.7035588,
+    "place": "hamlet"
+  },
+  {
+    "name": "Mickley Green",
+    "lat": 52.1877306,
+    "lon": 0.6879929,
+    "place": "hamlet"
+  },
+  {
+    "name": "Melon Green",
+    "lat": 52.1825682,
+    "lon": 0.6951008,
+    "place": "hamlet"
+  },
+  {
+    "name": "Birds End",
+    "lat": 52.2166491,
+    "lon": 0.5995278,
+    "place": "hamlet"
+  },
+  {
+    "name": "Hargrave Green",
+    "lat": 52.2006637,
+    "lon": 0.5874152,
+    "place": "hamlet"
+  },
+  {
+    "name": "Blackthorpe",
+    "lat": 52.2344747,
+    "lon": 0.7831822,
+    "place": "hamlet"
+  },
+  {
+    "name": "Grimstone End",
+    "lat": 52.2860646,
+    "lon": 0.8413979,
+    "place": "hamlet"
+  },
+  {
+    "name": "Bridge Street",
+    "lat": 52.1082807,
+    "lon": 0.7422522,
+    "place": "hamlet"
+  },
+  {
+    "name": "Mill Street",
+    "lat": 52.0001459,
+    "lon": 0.8950962,
+    "place": "hamlet"
+  },
+  {
+    "name": "Bell's Corner",
+    "lat": 52.0035026,
+    "lon": 0.9015866,
+    "place": "hamlet"
+  },
+  {
+    "name": "Stone Street",
+    "lat": 52.0204411,
+    "lon": 0.8623196,
+    "place": "hamlet"
+  },
+  {
+    "name": "Hadleigh Heath",
+    "lat": 52.0362751,
+    "lon": 0.9117416,
+    "place": "hamlet"
+  },
+  {
+    "name": "Calais Street",
+    "lat": 52.0231881,
+    "lon": 0.8757732,
+    "place": "hamlet"
+  },
+  {
+    "name": "Bower House Tye",
+    "lat": 52.0295426,
+    "lon": 0.8949177,
+    "place": "hamlet"
+  },
+  {
+    "name": "Kersey Upland",
+    "lat": 52.0488885,
+    "lon": 0.9018545,
+    "place": "hamlet"
+  },
+  {
+    "name": "Whitestreet Green",
+    "lat": 52.0169719,
+    "lon": 0.8800915,
+    "place": "hamlet"
+  },
+  {
+    "name": "Kersey Tye",
+    "lat": 52.0510262,
+    "lon": 0.8927457,
+    "place": "hamlet"
+  },
+  {
+    "name": "Little Whittingham Green",
+    "lat": 52.3429818,
+    "lon": 1.3491283,
+    "place": "hamlet"
+  },
+  {
+    "name": "Silverley's Green",
+    "lat": 52.3340011,
+    "lon": 1.3637624,
+    "place": "hamlet"
+  },
+  {
+    "name": "Oulton Broad",
+    "lat": 52.4766887,
+    "lon": 1.7102182,
+    "place": "village"
+  },
+  {
+    "name": "Sedge Fen",
+    "lat": 52.4318251,
+    "lon": 0.4456482,
+    "place": "hamlet"
+  },
+  {
+    "name": "Saxham Street",
+    "lat": 52.2131816,
+    "lon": 1.0526279,
+    "place": "hamlet"
+  },
+  {
+    "name": "Middlewood Green",
+    "lat": 52.2127069,
+    "lon": 1.0661484,
+    "place": "hamlet"
+  },
+  {
+    "name": "Wyverstone Street",
+    "lat": 52.2699302,
+    "lon": 0.9767539,
+    "place": "hamlet"
+  },
+  {
+    "name": "Stanton Chare",
+    "lat": 52.3315886,
+    "lon": 0.8706872,
+    "place": "hamlet"
+  },
+  {
+    "name": "Baylham",
+    "lat": 52.1229768,
+    "lon": 1.0713698,
+    "place": "village"
+  },
+  {
+    "name": "Kenny Hill",
+    "lat": 52.3901551,
+    "lon": 0.4514083,
+    "place": "hamlet"
+  },
+  {
+    "name": "Mildenhall",
+    "lat": 52.3455998,
+    "lon": 0.5127653,
+    "place": "town"
+  },
+  {
+    "name": "Stockhold Green",
+    "lat": 52.2463522,
+    "lon": 0.8258921,
+    "place": "hamlet"
+  },
+  {
+    "name": "Thurston Planche",
+    "lat": 52.242571,
+    "lon": 0.8247452,
+    "place": "hamlet"
+  },
+  {
+    "name": "Long Thurlow",
+    "lat": 52.2758223,
+    "lon": 0.9473237,
+    "place": "hamlet"
+  },
+  {
+    "name": "Wetherden Upper Town",
+    "lat": 52.2477342,
+    "lon": 0.9501014,
+    "place": "hamlet"
+  },
+  {
+    "name": "Fornham St Genevieve",
+    "lat": 52.2772027,
+    "lon": 0.706367,
+    "place": "village"
+  },
+  {
+    "name": "Easton Bavents",
+    "lat": 52.341724,
+    "lon": 1.6876446,
+    "place": "hamlet"
+  },
+  {
+    "name": "Upper Green",
+    "lat": 52.2525759,
+    "lon": 0.5557533,
+    "place": "hamlet"
+  },
+  {
+    "name": "Lower Green",
+    "lat": 52.2622367,
+    "lon": 0.5544551,
+    "place": "hamlet"
+  },
+  {
+    "name": "Middle Green",
+    "lat": 52.2565694,
+    "lon": 0.5572124,
+    "place": "hamlet"
+  },
+  {
+    "name": "Stone Common",
+    "lat": 52.1639295,
+    "lon": 1.446525,
+    "place": "hamlet"
+  },
+  {
+    "name": "Honey Tye",
+    "lat": 51.9852039,
+    "lon": 0.846076,
+    "place": "hamlet"
+  },
+  {
+    "name": "Barley Green",
+    "lat": 52.3141069,
+    "lon": 1.2983161,
+    "place": "hamlet"
+  },
+  {
+    "name": "High Green",
+    "lat": 52.2122027,
+    "lon": 0.7181987,
+    "place": "hamlet"
+  },
+  {
+    "name": "Swingleton Green",
+    "lat": 52.0889547,
+    "lon": 0.8628851,
+    "place": "hamlet"
+  },
+  {
+    "name": "Wicker Street Green",
+    "lat": 52.0408515,
+    "lon": 0.8834236,
+    "place": "hamlet"
+  },
+  {
+    "name": "School Green",
+    "lat": 52.0500266,
+    "lon": 0.8337191,
+    "place": "hamlet"
+  },
+  {
+    "name": "Lodge Farm",
+    "lat": 52.1112871,
+    "lon": 1.3283168,
+    "place": "hamlet"
+  },
+  {
+    "name": "Waldringfield Heath",
+    "lat": 52.0567272,
+    "lon": 1.3037533,
+    "place": "hamlet"
+  },
+  {
+    "name": "Burnside",
+    "lat": 52.2038886,
+    "lon": 0.6814098,
+    "place": "hamlet"
+  },
+  {
+    "name": "Cattishall",
+    "lat": 52.2538564,
+    "lon": 0.7605112,
+    "place": "hamlet"
+  },
+  {
+    "name": "Earsham Street",
+    "lat": 52.3555326,
+    "lon": 1.2820594,
+    "place": "hamlet"
+  },
+  {
+    "name": "Weybread Street",
+    "lat": 52.3703399,
+    "lon": 1.3034527,
+    "place": "hamlet"
+  },
+  {
+    "name": "Bleach Green",
+    "lat": 52.351627,
+    "lon": 1.2769943,
+    "place": "hamlet"
+  },
+  {
+    "name": "Upper Weybread",
+    "lat": 52.3702607,
+    "lon": 1.2745053,
+    "place": "hamlet"
+  },
+  {
+    "name": "Cookley Green",
+    "lat": 52.3301085,
+    "lon": 1.4289072,
+    "place": "hamlet"
+  },
+  {
+    "name": "Collipy's Green",
+    "lat": 52.3539147,
+    "lon": 1.4162053,
+    "place": "hamlet"
+  },
+  {
+    "name": "Morrellhaugh Green",
+    "lat": 52.3450338,
+    "lon": 1.4265339,
+    "place": "hamlet"
+  },
+  {
+    "name": "Linstead Green",
+    "lat": 52.3519153,
+    "lon": 1.4178854,
+    "place": "hamlet"
+  },
+  {
+    "name": "Stoven",
+    "lat": 52.3784075,
+    "lon": 1.5961109,
+    "place": "hamlet"
+  },
+  {
+    "name": "Ford's Green",
+    "lat": 52.2564229,
+    "lon": 1.0184079,
+    "place": "hamlet"
+  }
+]

@@ -31,8 +31,9 @@ ROOT = Path(__file__).parent.parent
 PHOTOS_OUT = ROOT / "docs" / "photos"
 DATA_DIR   = ROOT / "data"
 DOCS_DIR   = ROOT / "docs"
-SETTLEMENTS_FILE = DATA_DIR / "settlements.json"
-CORRECTIONS_FILE = DATA_DIR / "corrections.json"
+SETTLEMENTS_FILE       = DATA_DIR / "settlements.json"
+OTHER_SETTLEMENTS_FILE = DATA_DIR / "other_settlements.json"
+CORRECTIONS_FILE       = DATA_DIR / "corrections.json"
 DATA_OUT         = DOCS_DIR / "data.json"
 
 # ── Config ────────────────────────────────────────────────────────────────────
@@ -113,6 +114,19 @@ area["name"="Suffolk"]["boundary"="administrative"]["admin_level"="6"]->.suffolk
 out body;
 """
 
+OVERPASS_QUERY_OTHER = """
+[out:json][timeout:90];
+area["name"="Norfolk"]["boundary"="administrative"]["admin_level"="6"]->.norfolk;
+area["name"="Essex"]["boundary"="administrative"]["admin_level"="6"]->.essex;
+area["name"="Cambridgeshire"]["boundary"="administrative"]["admin_level"="6"]->.cambs;
+(
+  node["place"~"^(hamlet|village|town|city)$"](area.norfolk);
+  node["place"~"^(hamlet|village|town|city)$"](area.essex);
+  node["place"~"^(hamlet|village|town|city)$"](area.cambs);
+);
+out body;
+"""
+
 
 def fetch_settlements():
     print("Fetching Suffolk settlements from OpenStreetMap (this may take ~30s)…")
@@ -145,6 +159,39 @@ def load_settlements(refresh=False):
         with open(SETTLEMENTS_FILE) as f:
             return json.load(f)
     return fetch_settlements()
+
+
+def fetch_other_settlements():
+    print("Fetching Norfolk/Essex/Cambridgeshire settlements from OpenStreetMap (this may take ~30s)…")
+    resp = requests.post(OVERPASS_URL, data={"data": OVERPASS_QUERY_OTHER}, timeout=120)
+    resp.raise_for_status()
+    elements = resp.json()["elements"]
+
+    settlements = []
+    for el in elements:
+        name = el.get("tags", {}).get("name")
+        if not name:
+            continue
+        settlements.append({
+            "name":  name,
+            "lat":   el["lat"],
+            "lon":   el["lon"],
+            "place": el["tags"].get("place", ""),
+        })
+
+    print(f"  Found {len(settlements)} settlements")
+    DATA_DIR.mkdir(exist_ok=True)
+    with open(OTHER_SETTLEMENTS_FILE, "w") as f:
+        json.dump(settlements, f, indent=2)
+    return settlements
+
+
+def load_other_settlements(refresh=False):
+    if not refresh and OTHER_SETTLEMENTS_FILE.exists():
+        print("Loading cached other settlements…")
+        with open(OTHER_SETTLEMENTS_FILE) as f:
+            return json.load(f)
+    return fetch_other_settlements()
 
 # ── Matching ──────────────────────────────────────────────────────────────────
 
@@ -184,6 +231,7 @@ def build(refresh_settlements=False):
     # 2. Settlements
     print()
     settlements = load_settlements(refresh_settlements)
+    other_settlements = load_other_settlements(refresh_settlements)
 
     # 3. Match & export
     print("\nMatching clusters to settlements…")
@@ -197,7 +245,13 @@ def build(refresh_settlements=False):
     for cluster in clusters:
         # Use the most-recent photo's coords for settlement matching.
         rep = cluster[0]
+
+        # Try Suffolk first; fall back to Norfolk/Essex/Cambridgeshire.
         settlement, dist = nearest_settlement(rep["coords"], settlements)
+        county = "suffolk"
+        if settlement is None:
+            settlement, dist = nearest_settlement(rep["coords"], other_settlements)
+            county = "other"
         if settlement is None:
             print(f"  no match  {rep['path'].name}  (nearest >1.5km)")
             continue
@@ -222,6 +276,7 @@ def build(refresh_settlements=False):
             "lon":    settlement["lon"],
             "photos": photo_paths,
             "date":   date_str,
+            "county": county,
         })
         count_str = f" ({len(cluster)} photos)" if len(cluster) > 1 else ""
         print(f"  ✓  {name:<30}  {dist:.2f} km{count_str}")
@@ -230,7 +285,7 @@ def build(refresh_settlements=False):
     if CORRECTIONS_FILE.exists():
         with open(CORRECTIONS_FILE) as f:
             corrections = json.load(f)   # {"Wrong Name": "Correct Name", ...}
-        settlement_by_name = {s["name"]: s for s in settlements}
+        settlement_by_name = {s["name"]: s for s in [*settlements, *other_settlements]}
         for entry in visited:
             if entry["name"] in corrections:
                 wrong = entry["name"]
