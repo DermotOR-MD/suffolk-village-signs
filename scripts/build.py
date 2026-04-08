@@ -34,6 +34,7 @@ DOCS_DIR   = ROOT / "docs"
 SETTLEMENTS_FILE       = DATA_DIR / "settlements.json"
 OTHER_SETTLEMENTS_FILE = DATA_DIR / "other_settlements.json"
 CORRECTIONS_FILE       = DATA_DIR / "corrections.json"
+MANUAL_VISITED_FILE    = DATA_DIR / "manual_visited.json"
 DATA_OUT         = DOCS_DIR / "data.json"
 
 # ── Config ────────────────────────────────────────────────────────────────────
@@ -301,7 +302,37 @@ def build(refresh_settlements=False):
                 else:
                     print(f"  warning: correction target '{correct}' not found in settlements")
 
-    # 5. Unvisited with distance from home
+    # 5. Merge manual visited entries (settlements visited without a photo)
+    if MANUAL_VISITED_FILE.exists():
+        with open(MANUAL_VISITED_FILE) as f:
+            manual_entries = json.load(f)
+        all_settlements_by_name = {s["name"]: (s, "suffolk") for s in settlements}
+        all_settlements_by_name.update({s["name"]: (s, "other") for s in other_settlements})
+        for entry in manual_entries:
+            name = entry.get("name")
+            if not name:
+                print(f"  warning: manual entry missing 'name', skipping")
+                continue
+            if name in visited_names:
+                print(f"  manual   {name:<30}  (already matched by photo, skipping)")
+                continue
+            if name not in all_settlements_by_name:
+                print(f"  warning: manual entry '{name}' not found in any settlement list")
+                continue
+            s, default_county = all_settlements_by_name[name]
+            county = entry.get("county", default_county)
+            visited_names.add(name)
+            visited.append({
+                "name":   name,
+                "lat":    s["lat"],
+                "lon":    s["lon"],
+                "photos": [],
+                "date":   entry.get("date"),
+                "county": county,
+            })
+            print(f"  manual   {name:<30}  (no photo)")
+
+    # 6. Unvisited with distance from home
     print("\nBuilding unvisited list…")
     unvisited = []
     for s in settlements:
@@ -314,7 +345,7 @@ def build(refresh_settlements=False):
                 "distance_km": round(d, 1),
             })
 
-    # 5. Write data.json
+    # 7. Write data.json
     data = {
         "visited":   visited,
         "unvisited": unvisited,
