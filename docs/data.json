@@ -1,6 +1,96 @@
 {
   "visited": [
     {
+      "name": "Hadleigh",
+      "lat": 52.0441822,
+      "lon": 0.9542292,
+      "photos": [
+        "photos/14F71D87-C723-4E62-B224-B23A41A2A832.jpg"
+      ],
+      "date": "2026-04-08",
+      "county": "suffolk"
+    },
+    {
+      "name": "Raydon",
+      "lat": 52.0081508,
+      "lon": 0.9854167,
+      "photos": [
+        "photos/7557F7DD-B3EC-4E34-9F7A-19367E2EF269.jpg"
+      ],
+      "date": "2026-04-08",
+      "county": "suffolk"
+    },
+    {
+      "name": "Stratford St Mary",
+      "lat": 51.9708408,
+      "lon": 0.9790102,
+      "photos": [
+        "photos/B092D427-68BC-4D09-91E4-DF5D3B38B49B.jpg"
+      ],
+      "date": "2026-04-08",
+      "county": "suffolk"
+    },
+    {
+      "name": "Ardleigh",
+      "lat": 51.9231987,
+      "lon": 0.9836457,
+      "photos": [
+        "photos/CD526393-064C-4661-8798-EC84568BD8C5.jpg"
+      ],
+      "date": "2026-04-08",
+      "county": "other"
+    },
+    {
+      "name": "Great Bromley",
+      "lat": 51.8956339,
+      "lon": 1.02767,
+      "photos": [
+        "photos/1A8465FA-DB69-4F02-AD43-194F16AFBE13.jpg"
+      ],
+      "date": "2026-04-08",
+      "county": "other"
+    },
+    {
+      "name": "North Lopham",
+      "lat": 52.4077327,
+      "lon": 0.9890719,
+      "photos": [
+        "photos/7A03B960-2D27-4FF3-A2EB-CFD46D16453E.jpg"
+      ],
+      "date": "2026-04-01",
+      "county": "other"
+    },
+    {
+      "name": "South Lopham",
+      "lat": 52.3919085,
+      "lon": 0.9991186,
+      "photos": [
+        "photos/7419E4D9-AC9B-4243-85C3-4EE4FAAA1EE5.jpg"
+      ],
+      "date": "2026-04-01",
+      "county": "other"
+    },
+    {
+      "name": "Thelnetham",
+      "lat": 52.3667778,
+      "lon": 0.9573407,
+      "photos": [
+        "photos/7984F39D-EBC3-4098-9BFA-24C6BE79914C.jpg"
+      ],
+      "date": "2026-04-01",
+      "county": "suffolk"
+    },
+    {
+      "name": "Felsham",
+      "lat": 52.1787597,
+      "lon": 0.8431397,
+      "photos": [
+        "photos/4CBE5B5D-EBF5-4AFF-A90A-79520042D2C8.jpg"
+      ],
+      "date": "2026-03-18",
+      "county": "suffolk"
+    },
+    {
       "name": "Hessett",
       "lat": 52.2177672,
       "lon": 0.8321568,
@@ -97,16 +187,6 @@
       "lon": 1.1044938,
       "photos": [
         "photos/752930D8-393F-4087-B72D-A4E2E304A472.jpg"
-      ],
-      "date": "2026-03-11",
-      "county": "suffolk"
-    },
-    {
-      "name": "Thelnetham",
-      "lat": 52.3667778,
-      "lon": 0.9573407,
-      "photos": [
-        "photos/019F2DEE-E435-4BE1-80E4-9895E1401647.jpg"
       ],
       "date": "2026-03-11",
       "county": "suffolk"
@@ -1368,16 +1448,6 @@
       "county": "suffolk"
     },
     {
-      "name": "Hadleigh",
-      "lat": 52.0441822,
-      "lon": 0.9542292,
-      "photos": [
-        "photos/F3360C50-1CB8-46E4-9945-18771A178F4D.jpg"
-      ],
-      "date": "2021-04-28",
-      "county": "suffolk"
-    },
-    {
       "name": "East Bergholt",
       "lat": 51.9784172,
       "lon": 1.0179463,
@@ -1426,16 +1496,6 @@
       ],
       "date": "2021-04-28",
       "county": "other"
-    },
-    {
-      "name": "Stratford St Mary",
-      "lat": 51.9708408,
-      "lon": 0.9790102,
-      "photos": [
-        "photos/E209F079-34AE-42D5-A113-0610C1FAA6E5.jpg"
-      ],
-      "date": "2021-04-28",
-      "county": "suffolk"
     },
     {
       "name": "Wickham Skeith",
@@ -2197,16 +2257,6 @@
       "county": "other"
     },
     {
-      "name": "South Lopham",
-      "lat": 52.3919085,
-      "lon": 0.9991186,
-      "photos": [
-        "photos/E0D71732-6CAD-4982-9F8F-1C91BD2587C4.jpg"
-      ],
-      "date": "2019-11-10",
-      "county": "other"
-    },
-    {
       "name": "Redgrave",
       "lat": 52.3607066,
       "lon": 1.0045704,
@@ -2550,12 +2600,6 @@
       "distance_km": 11.8
     },
     {
-      "name": "Felsham",
-      "lat": 52.1787597,
-      "lon": 0.8431397,
-      "distance_km": 7.5
-    },
-    {
       "name": "Poystreet Green",
       "lat": 52.1860636,
       "lon": 0.8963219,
@@ -2608,12 +2652,6 @@
       "lat": 52.3869267,
       "lon": 0.8907638,
       "distance_km": 16.9
-    },
-    {
-      "name": "Raydon",
-      "lat": 52.0081508,
-      "lon": 0.9854167,
-      "distance_km": 25.9
     },
     {
       "name": "Shelley",
@@ -5473,8 +5511,8 @@
     }
   ],
   "stats": {
-    "visited": 231,
-    "total": 753,
+    "visited": 236,
+    "total": 756,
     "generated": "2026-04-08"
   }
 }
